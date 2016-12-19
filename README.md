@@ -23,7 +23,7 @@ To use all features (esptool, jedi, pylint) Python installation is recomended
 - python -m pip install --upgarde pip  
 - python -m pip install esptool
 - python -m pip install jedi
-- python -m pip install pylin
+- python -m pip install pylint
 
 ###Quick Start:
 
