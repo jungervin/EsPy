@@ -229,6 +229,7 @@
     <None Include="pip.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Release\EsPy.1.0.0.4.7z" />
     <None Include="Resources\error16.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\compile.png" />
