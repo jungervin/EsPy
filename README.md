@@ -1,4 +1,4 @@
-# EsPy, an ESP8266 MicroPython IDE
+# MicroPython IDE for ESP8266
 
 ### Minimum Requirements:
 
@@ -16,12 +16,14 @@
 
 Only unzip the downloaded file.
 
-To run the esptool, you need to install python environment.
+To use all features (esptool, jedi, pylint) Python installation is recomended
 
 **After Python intsallation:**
 
 - python -m pip install --upgarde pip  
 - python -m pip install esptool
+- python -m pip install jedi
+- python -m pip install pylin
 
 ###Quick Start:
 
@@ -51,7 +53,7 @@ To run the esptool, you need to install python environment.
 - Esptool enabled when the port is closed
 
 ### Download:
-https://github.com/jungervin/EsPy/raw/master/EsPy/EsPy.1.0.0.2.7z
+https://github.com/jungervin/EsPy/raw/master/EsPy/Release/EsPy.1.0.0.4.7z
 
 
 ### Images:
