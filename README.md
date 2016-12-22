@@ -16,7 +16,7 @@
 
 Only unzip the downloaded file.
 
-To use all features (esptool, jedi, pylint) Python installation is recomended
+To use all features ([esptool](https://github.com/espressif/esptool), [jedi](https://github.com/davidhalter/jedi), [pylint](https://github.com/PyCQA/pylint)) Python installation is recomended
 
 **After Python intsallation:**
 
