@@ -315,6 +315,28 @@ namespace EsPy.Components
             base.WndProc(ref m);
         }
 
+        private void Paste(string text)
+        {
+            //this.InsertText(this.CurrentPosition, text);
+            //this.GotoPosition(this.CurrentPosition + text.Length);
+            //return;
+
+            //Line line = this.Lines[this.CurrentLine];
+            //string  = this.GetTextRange(this.PromptPos, this.TextLength - this.PromptPos);
+
+            string[] lines = text.Replace("\r", "").Split('\n');
+            //foreach (string line in lines)
+            //{
+            //    this.Port.WriteLine(line);
+            //}
+
+            for (int i = 0; i < lines.Length - 1; i++)
+            {
+                this.Port.WriteLine(lines[i]);
+            }
+
+            this.Port.Write(lines[lines.Length - 1]);
+        }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             Line line = null;
@@ -344,12 +366,15 @@ namespace EsPy.Components
                         case Keys.Control | Keys.V:
                             if (Clipboard.ContainsText())
                             {
-                                this.Port.Clean();
-                                this.Port.PasteMode();
-                                this.Port.ReadAllLines();
-                                byte[] buff = Encoding.UTF8.GetBytes(Clipboard.GetText().Replace("\r", ""));
-                                this.Port.Write(buff, 0, buff.Length);
-                                this.Port.SoftReset();
+                                this.Paste(Clipboard.GetText());
+                                //this.Port.Clean();
+                                //this.Port.PasteMode();
+                                //this.Port.ReadAllLines();
+                                //byte[] buff = Encoding.UTF8.GetBytes(Clipboard.GetText().Replace("\r", ""));
+                                //this.Port.Write(buff, 0, buff.Length);
+                                //this.Port.SoftReset();
+
+                                 
 
                             }
                             return true;

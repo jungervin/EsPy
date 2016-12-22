@@ -295,6 +295,7 @@
             this.mnComment.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
             this.mnComment.Size = new System.Drawing.Size(183, 22);
             this.mnComment.Text = "Comment";
+            this.mnComment.Click += new System.EventHandler(this.mnComment_Click);
             // 
             // mnUncommet
             // 
@@ -304,6 +305,7 @@
             this.mnUncommet.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
             this.mnUncommet.Size = new System.Drawing.Size(183, 22);
             this.mnUncommet.Text = "Uncomment";
+            this.mnUncommet.Click += new System.EventHandler(this.mnUncommet_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -709,10 +711,10 @@
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookBoth;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Html;
-            this.scintilla.Location = new System.Drawing.Point(0, 39);
+            this.scintilla.Location = new System.Drawing.Point(0, 24);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
-            this.scintilla.Size = new System.Drawing.Size(636, 223);
+            this.scintilla.Size = new System.Drawing.Size(636, 238);
             this.scintilla.TabIndex = 2;
             this.scintilla.SavePointLeft += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointLeft);
             this.scintilla.SavePointReached += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointReached);

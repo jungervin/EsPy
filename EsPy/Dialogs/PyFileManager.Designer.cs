@@ -49,13 +49,20 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnMkDir = new System.Windows.Forms.Button();
             this.btnRename = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labTotal = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lFree = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lUsage = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
@@ -68,10 +75,12 @@
             this.columnHeader2});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.FullRowSelect = true;
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 25);
+            this.listView1.Location = new System.Drawing.Point(10, 25);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(564, 230);
+            this.listView1.Size = new System.Drawing.Size(564, 228);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -146,7 +155,7 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(392, 261);
+            this.btnUpload.Location = new System.Drawing.Point(392, 288);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(89, 23);
             this.btnUpload.TabIndex = 5;
@@ -157,7 +166,7 @@
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(487, 261);
+            this.btnClose.Location = new System.Drawing.Point(487, 288);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 23);
             this.btnClose.TabIndex = 6;
@@ -166,7 +175,7 @@
             // 
             // btnDownload
             // 
-            this.btnDownload.Location = new System.Drawing.Point(297, 261);
+            this.btnDownload.Location = new System.Drawing.Point(297, 288);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(89, 22);
             this.btnDownload.TabIndex = 4;
@@ -177,7 +186,7 @@
             // Path
             // 
             this.Path.AutoSize = true;
-            this.Path.Location = new System.Drawing.Point(53, 9);
+            this.Path.Location = new System.Drawing.Point(47, 9);
             this.Path.Name = "Path";
             this.Path.Size = new System.Drawing.Size(10, 13);
             this.Path.TabIndex = 0;
@@ -185,7 +194,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(202, 261);
+            this.btnDelete.Location = new System.Drawing.Point(202, 288);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 22);
             this.btnDelete.TabIndex = 3;
@@ -195,7 +204,7 @@
             // 
             // btnMkDir
             // 
-            this.btnMkDir.Location = new System.Drawing.Point(107, 261);
+            this.btnMkDir.Location = new System.Drawing.Point(107, 288);
             this.btnMkDir.Name = "btnMkDir";
             this.btnMkDir.Size = new System.Drawing.Size(89, 23);
             this.btnMkDir.TabIndex = 2;
@@ -205,7 +214,7 @@
             // 
             // btnRename
             // 
-            this.btnRename.Location = new System.Drawing.Point(12, 261);
+            this.btnRename.Location = new System.Drawing.Point(12, 288);
             this.btnRename.Name = "btnRename";
             this.btnRename.Size = new System.Drawing.Size(89, 23);
             this.btnRename.TabIndex = 1;
@@ -213,11 +222,81 @@
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 260);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Total: ";
+            // 
+            // labTotal
+            // 
+            this.labTotal.AutoSize = true;
+            this.labTotal.Location = new System.Drawing.Point(56, 260);
+            this.labTotal.Name = "labTotal";
+            this.labTotal.Size = new System.Drawing.Size(16, 13);
+            this.labTotal.TabIndex = 8;
+            this.labTotal.Text = "---";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(130, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Free: ";
+            // 
+            // lFree
+            // 
+            this.lFree.AutoSize = true;
+            this.lFree.Location = new System.Drawing.Point(170, 260);
+            this.lFree.Name = "lFree";
+            this.lFree.Size = new System.Drawing.Size(16, 13);
+            this.lFree.TabIndex = 8;
+            this.lFree.Text = "---";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(236, 260);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Usage: ";
+            // 
+            // lUsage
+            // 
+            this.lUsage.AutoSize = true;
+            this.lUsage.Location = new System.Drawing.Point(286, 260);
+            this.lUsage.Name = "lUsage";
+            this.lUsage.Size = new System.Drawing.Size(16, 13);
+            this.lUsage.TabIndex = 8;
+            this.lUsage.Text = "---";
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Location = new System.Drawing.Point(12, 280);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(562, 2);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "label4";
+            // 
             // PyFileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 293);
+            this.ClientSize = new System.Drawing.Size(587, 323);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lUsage);
+            this.Controls.Add(this.lFree);
+            this.Controls.Add(this.labTotal);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRename);
             this.Controls.Add(this.btnMkDir);
@@ -261,5 +340,12 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnMkDir;
         private System.Windows.Forms.Button btnRename;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labTotal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lFree;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lUsage;
+        private System.Windows.Forms.Label label4;
     }
 }

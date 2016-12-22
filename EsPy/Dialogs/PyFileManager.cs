@@ -47,6 +47,21 @@ namespace EsPy.Dialogs
                     return;
                 }
 
+                ResultStatus df = this.Port.StatVfs();
+                if (df.Result == ResultStatus.Statuses.Success && df.Data is StatVfs)
+                {
+                    StatVfs fs = df.Data as StatVfs;
+                    this.labTotal.Text = fs.TotalMegaBytes.ToString("0.00 MB");
+                    this.lFree.Text = fs.FreeMegaBytes.ToString("0.00 MB");
+                    this.lUsage.Text = fs.Usage.ToString("0.00 %");
+                }
+                else
+                {
+                    this.labTotal.Text = 
+                        this.lFree.Text = 
+                        this.lUsage.Text = "NaN";
+                }
+
                 ResultStatus files = this.Port.Ls();
 
                 if (files.Result == ResultStatus.Statuses.Success)
@@ -57,7 +72,6 @@ namespace EsPy.Dialogs
                         item.SubItems.Add("");
                         item.ImageIndex = 0;
                         listView1.Items.Add(item);
-
                     }
 
 

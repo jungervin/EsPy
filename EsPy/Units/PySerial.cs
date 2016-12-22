@@ -308,13 +308,29 @@ namespace EsPy.Units
         {
             List<string> prog = new List<string>();
             prog.Add("import os");
-            prog.Add($"os.stat('{fname}')");
+            prog.Add($"os.stat('{fname}')");          
             ResultStatus res = this.Exec(prog);
             if (res.Result == ResultStatus.Statuses.Error)
                 return res;
 
             string[] items = res.ToString().Replace("(", "").Replace(")", "").Split(',');
             res.Data = new PyFile(fname, int.Parse(items[0].Trim()), int.Parse(items[6].Trim()));
+            return res;
+        }
+
+        public ResultStatus StatVfs()
+        {
+            List<string> prog = new List<string>();
+            prog.Add("import os");
+            prog.Add("os.statvfs('/')");
+            ResultStatus res = this.Exec(prog);
+            if (res.Result == ResultStatus.Statuses.Error)
+                return res;
+
+            res.Data = Units.StatVfs.Create(res.ToString());
+
+            //string[] items = res.ToString().Replace("(", "").Replace(")", "").Split(',');
+            //res.Data = new PyFile(fname, int.Parse(items[0].Trim()), int.Parse(items[6].Trim()));
             return res;
         }
 

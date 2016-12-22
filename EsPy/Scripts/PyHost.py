@@ -31,8 +31,8 @@ def serialize_completions(completions):
     try:
         for completion in completions:
             #print(dir(item))
-            #if completion.module_name == '__builtin__':
-            #    continue
+            if completion.module_name == '__builtin__':
+                continue
             #print(completion.module_path)
 
             params = []
@@ -65,7 +65,7 @@ def serialize_completions(completions):
         return json.dumps({'completions': items})
     except Exception as e:
         print("EXCEPTION: ", e)
-        pass
+        return "ERR"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((TCP_IP, TCP_PORT))
@@ -76,17 +76,20 @@ print 'Connection address:', addr
 while 1:
     data = conn.recv(4)
     dlen = unpack('i', data)
-    data = conn.recv(dlen[0])
-    
-    obj = Proc(data)
+    data = ""
+
+    while len(data) < dlen[0]:
+        data += conn.recv(dlen[0])
+
+    obj = Proc(data)           
     result = 'No suggestion';
     print "MODULE: " + obj.Module
     print "METHOD: " + obj.Method
   
     if obj.Module == 'jedi':
         if obj.Method == 'completion':
-            script = jedi.Script(obj.Script['Source'], obj.Script['Line'], obj.Script['Column']) 
-            result = serialize_completions(script.completions())
+                script = jedi.Script(obj.Script['Source'], obj.Script['Line'], obj.Script['Column']) 
+                result = serialize_completions(script.completions())
         elif obj.Method == "hello":
             result = json.dumps({"respose": "hello"})
         elif obj.Method == "bye":
@@ -101,4 +104,5 @@ while 1:
     print("LEN: ", dlen, "SENT: ", n)
 
 conn.close()
+#input("Press Enter to continue...")
 sys.exit()

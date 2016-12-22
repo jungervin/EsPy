@@ -109,7 +109,7 @@ namespace EsPy.Python
                 {
                     this.Client = new TcpClient();
                     // Todo: test size
-                    this.Client.ReceiveBufferSize = 1024;
+                    //this.Client.ReceiveBufferSize = 1024;
                     this.Client.ReceiveTimeout = 3000;
                     this.Client.SendTimeout = 3000;
                     this.Client.Connect(this.Address, this.Port);

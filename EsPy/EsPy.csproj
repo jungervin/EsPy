@@ -220,6 +220,7 @@
     <Compile Include="Units\ResultStatus.cs" />
     <Compile Include="Units\PyFile.cs" />
     <Compile Include="Units\SerialPort.cs" />
+    <Compile Include="Units\StatVfs.cs" />
     <Compile Include="Utility\BinaryString.cs" />
     <Compile Include="Utility\FileFormat.cs" />
     <Compile Include="Utility\FileFormats.cs" />
@@ -229,7 +230,11 @@
     <None Include="pip.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Lib\ssd1306.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Release\EsPy.1.0.0.4.7z" />
+    <None Include="Release\EsPy.1.0.0.5.7z" />
     <None Include="Resources\error16.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\compile.png" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EsPy.Utility
@@ -13,6 +14,22 @@ namespace EsPy.Utility
             public int Pos = 0;
             public string Word = "";
             public string Filter = "";
+        }
+
+        public static string[] Matches(string pattern, string text)
+        {
+            Regex re = new Regex(pattern);
+            if (re.IsMatch(text))
+            {
+                MatchCollection items = re.Matches(text);
+                string[] res = new string[items.Count];
+                for(int i = 0; i < items.Count; i++)
+                {
+                    res[i] = items[i].Groups[1].Value;
+                }
+                return res;
+            }
+            return null;
         }
 
         public static Words FindWords(string text, int from)
