@@ -52,9 +52,8 @@ To use all features (esptool, jedi, pylint) Python installation is recomended
 - Filemanager is enabled when device is connected and not busy
 - Esptool enabled when the port is closed
 
-### Download:
-https://github.com/jungervin/EsPy/raw/master/EsPy/Release/EsPy.1.0.0.4.7z
-
+### Download v1.0.0.5:
+https://github.com/jungervin/EsPy/raw/master/EsPy/Release/EsPy.1.0.0.5.7z
 
 ### Images:
 ![alt text](https://raw.githubusercontent.com/jungervin/EsPy/master/EsPy/Helps/images/espy.png "Main screen")
