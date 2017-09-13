@@ -11,6 +11,31 @@ namespace EsPy.Utility
 {
     public static class Helpers
     {
+        public static bool PortIsOpen(string port_name)
+        {
+            System.IO.Ports.SerialPort p = new System.IO.Ports.SerialPort();
+            p.PortName = port_name;
+
+            try
+            {
+                p.Open();
+                p.Close();
+                return false;
+            }
+            catch
+            {
+                return true;
+            }
+            finally
+            {
+                if (p != null)
+                {
+                    p.Dispose();
+                    p = null;
+                }
+            }
+        }
+
         public static string GetPythonPath()
         {
             string[] paths = Environment.GetEnvironmentVariable("PATH").Split(new char[] { ';' });

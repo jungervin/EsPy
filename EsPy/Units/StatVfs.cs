@@ -66,7 +66,7 @@ namespace EsPy.Units
             get
             {
                 if (this.TotalBytes != 0)
-                    return this.FreeBytes / this.TotalBytes;
+                    return 1 - (this.FreeBytes / this.TotalBytes);
                 return float.NaN;
             }
         }

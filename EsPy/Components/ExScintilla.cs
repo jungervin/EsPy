@@ -437,7 +437,8 @@ namespace EsPy.Components
             this.StyleClearAll(); 
             this.IndentWidth = 4;
             this.IndentationGuides = IndentView.LookForward;
-           
+
+
             this.SetProperty("tab.timmy.whinge.level", "1");
             this.SetProperty("fold", "1");
 

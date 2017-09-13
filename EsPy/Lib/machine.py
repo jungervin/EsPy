@@ -1,17 +1,17 @@
-﻿class Pin:
+﻿class Pin():
     #init', 'value', 'low', 'high', 'irq', 'IN', 'OUT', 'OPEN_DRAIN', 'PULL_UP', 'IRQ_RISING', 'IRQ_FALLING'
 
     def __init__(self, pin_id):
         pass
 
-    def value(value):
+    def value(self, value):
         pass
 
-    def low():
+    def low(self):
         pass
 
-    def high():
+    def high(self):
         pass
 
-    def irq():
+    def irq(self):
         pass

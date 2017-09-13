@@ -70,9 +70,6 @@ namespace EsPy
             this.DragEnter += MainForm_DragEnter;
             this.DragDrop += MainForm_DragDrop;
             this.DragOver += MainForm_DragOver;
-
-            
-
         }
 
         private void MainForm_DragOver(object sender, DragEventArgs e)
@@ -361,6 +358,7 @@ namespace EsPy
         {
   
             this.mnTerminal.Enabled = this.TerminalForm == null;
+            this.JediState.Text = Globals.PyClient != null ? "Connected" : "Not connected";
         }
 
         private void SetSchema(object sender, System.EventArgs e)
@@ -740,7 +738,7 @@ namespace EsPy
 
             if (!this.ComportIsExists)
             {
-                this.btnConnect.Enabled = false;
+                //this.btnConnect.Enabled = false;
                 MessageBox.Show($"Serialport \"{this.CurretPortName}\" does not exists!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -884,7 +882,7 @@ namespace EsPy
                 this.mnPorts.DropDownItems.Add(mi);
             }
 
-            this.mnEspTool.Enabled = this.Port == null && this.ComportIsExists;
+            //this.mnEspTool.Enabled = this.Port == null && this.ComportIsExists;
         }
 
         private bool ComportIsExists
@@ -941,7 +939,6 @@ namespace EsPy
             if (File.Exists(p))
                 System.Diagnostics.Process.Start(p);
             else MessageBox.Show("Help file does not exits!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
         }
 
         private void btnFlashing_Click(object sender, EventArgs e)
@@ -1014,6 +1011,9 @@ namespace EsPy
             d.Dispose();
         }
 
-       
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

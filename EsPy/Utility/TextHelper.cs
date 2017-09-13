@@ -23,7 +23,7 @@ namespace EsPy.Utility
             {
                 MatchCollection items = re.Matches(text);
                 string[] res = new string[items.Count];
-                for(int i = 0; i < items.Count; i++)
+                for (int i = 0; i < items.Count; i++)
                 {
                     res[i] = items[i].Groups[1].Value;
                 }
@@ -36,10 +36,11 @@ namespace EsPy.Utility
         {
             Words words = new Words();
             if (from >= 1)
-            {words.Pos = from;
+            {
+                words.Pos = from;
                 from--;
                 int dot = 0;
-                
+
                 while (from >= 0)
                 {
                     char c = text[from];

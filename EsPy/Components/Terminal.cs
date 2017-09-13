@@ -131,13 +131,6 @@ namespace EsPy.Components
         char LastMode = (char)0;
         public bool Locked = false;
 
-
-        //public int FindPrompPos()
-        //{
-        //    Line line = this.Lines[this.LineFromPosition(this.CurrentPosition)];
-        //    if()
-        //}
-
         private char C0 = '\0';
         private char C1 = '\0';
         private char C2 = '\0';
@@ -357,7 +350,7 @@ namespace EsPy.Components
 
             if (msg.Msg == WM_KEYDOWN || msg.Msg == WM_SYSKEYDOWN)
             {
-               // if (this.Port is PySerial)
+                if (this.Port is PySerial)
                 {
                     //PythonSerial port = this.Port as PythonSerial;
 

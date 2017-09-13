@@ -97,6 +97,8 @@
             this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
             this.vS2015LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015LightTheme();
             this.visualStudioToolStripExtender1 = new WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender(this.components);
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.JediState = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -144,7 +146,7 @@
             this.mnNewOther});
             this.mnNew.Image = ((System.Drawing.Image)(resources.GetObject("mnNew.Image")));
             this.mnNew.Name = "mnNew";
-            this.mnNew.Size = new System.Drawing.Size(121, 22);
+            this.mnNew.Size = new System.Drawing.Size(152, 22);
             this.mnNew.Text = "New";
             // 
             // mnNewPython
@@ -205,20 +207,20 @@
             // 
             this.mnOpen.Image = ((System.Drawing.Image)(resources.GetObject("mnOpen.Image")));
             this.mnOpen.Name = "mnOpen";
-            this.mnOpen.Size = new System.Drawing.Size(121, 22);
+            this.mnOpen.Size = new System.Drawing.Size(152, 22);
             this.mnOpen.Text = "Open...";
             this.mnOpen.Click += new System.EventHandler(this.mnOpen_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(118, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // mnSave
             // 
             this.mnSave.Enabled = false;
             this.mnSave.Name = "mnSave";
-            this.mnSave.Size = new System.Drawing.Size(121, 22);
+            this.mnSave.Size = new System.Drawing.Size(152, 22);
             this.mnSave.Text = "Save";
             this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
@@ -226,7 +228,7 @@
             // 
             this.mnSaveAs.Enabled = false;
             this.mnSaveAs.Name = "mnSaveAs";
-            this.mnSaveAs.Size = new System.Drawing.Size(121, 22);
+            this.mnSaveAs.Size = new System.Drawing.Size(152, 22);
             this.mnSaveAs.Text = "Save as...";
             this.mnSaveAs.Click += new System.EventHandler(this.mnSaveAs_Click);
             // 
@@ -234,20 +236,21 @@
             // 
             this.mnSaveAll.Image = global::EsPy.Properties.Resources.saveall;
             this.mnSaveAll.Name = "mnSaveAll";
-            this.mnSaveAll.Size = new System.Drawing.Size(121, 22);
+            this.mnSaveAll.Size = new System.Drawing.Size(152, 22);
             this.mnSaveAll.Text = "Save all";
             this.mnSaveAll.Click += new System.EventHandler(this.mnSaveAll_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(118, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // mnEdit
             // 
@@ -262,7 +265,7 @@
             this.settingsToolStripMenuItem.Enabled = false;
             this.settingsToolStripMenuItem.MergeIndex = 20;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -325,7 +328,6 @@
             // 
             // mnEspTool
             // 
-            this.mnEspTool.Enabled = false;
             this.mnEspTool.Name = "mnEspTool";
             this.mnEspTool.Size = new System.Drawing.Size(148, 22);
             this.mnEspTool.Text = "EspTool...";
@@ -628,7 +630,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel4,
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1,
+            this.JediState});
             this.statusStrip1.Location = new System.Drawing.Point(0, 398);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(522, 22);
@@ -665,6 +669,18 @@
             // visualStudioToolStripExtender1
             // 
             this.visualStudioToolStripExtender1.DefaultRenderer = null;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(30, 17);
+            this.toolStripStatusLabel1.Text = "Jedi:";
+            // 
+            // JediState
+            // 
+            this.JediState.Name = "JediState";
+            this.JediState.Size = new System.Drawing.Size(22, 17);
+            this.JediState.Text = "---";
             // 
             // MainForm
             // 
@@ -763,6 +779,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem mnErrorList;
         public WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel JediState;
     }
 }
 

@@ -43,29 +43,39 @@ namespace EsPy.Python
                  "python", this.ScriptPath);
 
                 inf.UseShellExecute = false;
-                inf.CreateNoWindow = true;  //!Properties.Settings.Default.ShowPyServer;
+#if DEBUG
+                inf.CreateNoWindow = false;
+#else
+                inf.CreateNoWindow = true;
+#endif
                 this.Process = new System.Diagnostics.Process();
                 this.Process.StartInfo = inf;
                 try
                 {
                     this.Process.Start();
-
-                    int p = 5;
+                    Thread.Sleep(1000);
+                    
+                    int p = 10;
                     while (p-- > 0)
                     {
                         Thread.Sleep(1000);
                         try
                         {
                             JToken res = Globals.PyClient.DoRequest<JToken>("jedi", "hello");
-                            break;
+                            if (res != null)
+                            {
+                                return true;
+                            }
                         }
                         catch
                         { }
                     }
                     return p > 0;
                 }
-                catch
-                { }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
             return false;
         }
@@ -78,14 +88,15 @@ namespace EsPy.Python
                 {
                     if (this.Client != null)
                     {
-                        Globals.PyClient.DoRequest<JToken>("jedi", "bye");
+                        JToken res = this.DoRequest<JToken>("jedi", "bye");
+                        //if (res != null)
                         this.Client.Close();
                         this.Client.Dispose();
                     }
                 }
-                catch// (Exception e)
+                catch (Exception e)
                 {
-                    //Helpers.ErrorBox(e);
+                    Helpers.ErrorBox(e);
                 }
 
                 if (this.Process != null)
@@ -94,9 +105,9 @@ namespace EsPy.Python
                     this.Process.Dispose();
                 }
             }
-            catch //(Exception ee)
+            catch (Exception ee)
             {
-                //Helpers.ErrorBox(ee);
+                Helpers.ErrorBox(ee);
             }
 
         }
@@ -131,49 +142,55 @@ namespace EsPy.Python
         {
             this.Connect();
 
-            NetworkStream ns = this.Client.GetStream();
-            byte[] buff = Encoding.UTF8.GetBytes(text);
-            ns.Write(BitConverter.GetBytes(buff.Length), 0, sizeof(Int32));
-            ns.Write(buff, 0, buff.Length);
-
-            byte[] rec = new byte[4];
-            ns.Read(rec, 0, sizeof(Int32));
-            int len = BitConverter.ToInt32(rec, 0);
-
-            if (len > this.InpBuffer.Length)
-            {
-                Array.Resize(ref this.InpBuffer, len);
-            }
-            //byte[] inb = new byte[len];
-
-            //while (this.Client.Available < len)
-            //{
-            //    Thread.Sleep(10);
-            //}
-
-            int count = 0;
-            int p = MAX_WAIT;
-            while (count < len)
+            if (this.Client != null && this.Client.Connected)
             {
 
-                if (this.Client.Available == 0)
+                NetworkStream ns = this.Client.GetStream();
+                byte[] buff = Encoding.UTF8.GetBytes(text);
+                ns.Write(BitConverter.GetBytes(buff.Length), 0, sizeof(Int32));
+                ns.Write(buff, 0, buff.Length);
+
+                byte[] rec = new byte[4];
+                ns.Read(rec, 0, sizeof(Int32));
+                int len = BitConverter.ToInt32(rec, 0);
+
+                if (len > this.InpBuffer.Length)
                 {
-                    Thread.Sleep(10);
-                    if (p-- <= 0)
+                    Array.Resize(ref this.InpBuffer, len);
+                }
+                //byte[] inb = new byte[len];
+
+                //while (this.Client.Available < len)
+                //{
+                //    Thread.Sleep(10);
+                //}
+
+                int count = 0;
+                int p = MAX_WAIT;
+                while (count < len)
+                {
+
+                    if (this.Client.Available == 0)
                     {
-                        throw new TimeoutException("MAX_WAIT Timeout!");
+                        Thread.Sleep(10);
+                        if (p-- <= 0)
+                        {
+                            throw new TimeoutException("MAX_WAIT Timeout!");
+                        }
+                    }
+                    else
+                    {
+                        count += ns.Read(this.InpBuffer, count, this.Client.Available);
+                        p = MAX_WAIT;
                     }
                 }
-                else
-                {
-                    count += ns.Read(this.InpBuffer, count, this.Client.Available);
-                    p = MAX_WAIT;
-                }
+
+                //Console.WriteLine($"SOCKET: {count}/{len}");          
+
+                return System.Text.Encoding.UTF8.GetString(this.InpBuffer, 0, len);
             }
 
-            //Console.WriteLine($"SOCKET: {count}/{len}");          
-
-            return System.Text.Encoding.UTF8.GetString(this.InpBuffer, 0, len);
+            return "";
         }
 
         public T DoRequest<T>(PyRequest req)
@@ -187,7 +204,6 @@ namespace EsPy.Python
         {
             PyRequest req = new PyRequest(module, method);
             return DoRequest<T>(req);
-
         }
     }
 }

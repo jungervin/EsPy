@@ -93,8 +93,24 @@ namespace EsPy.Dialogs
             d.Dispose();
         }
 
-         private string Run(string cmd, string args)
+
+       
+
+        private string Run(string cmd, string args)
         {
+            if (this.cbPort.SelectedItem == null)
+            {
+                Helpers.WarningBox("There is not selected serial port!");
+                return "";
+            }
+
+            string portname = this.cbPort.SelectedItem.ToString();
+            if (Utility.Helpers.PortIsOpen(portname))
+            {
+                Helpers.ErrorBox($"{portname} has been alredy opened!");
+                return "";
+            }
+
             this.textBox4.Text = "Please wait...\r\n";
             
             this.Enabled = false;
@@ -181,7 +197,7 @@ namespace EsPy.Dialogs
         {
             if (this.CheckPaths(false))
             {
-                string args = String.Format("{0} -p {1} -b {2} read_mac", this.tbEsptool.Text, this.PortName, this.BaudRate);
+                string args = String.Format("\"{0}\" -p {1} -b {2} read_mac", this.tbEsptool.Text, this.PortName, this.BaudRate);
                 this.textBox4.Text = this.Run(this.tbPython.Text, args);
             }
         }
@@ -190,7 +206,7 @@ namespace EsPy.Dialogs
         {
             if (this.CheckPaths(false))
             {
-                string args = String.Format("{0} -p {1} -b {2} flash_id", this.tbEsptool.Text, this.PortName, this.BaudRate);
+                string args = String.Format("\"{0}\" -p {1} -b {2} flash_id", this.tbEsptool.Text, this.PortName, this.BaudRate);
                 this.textBox4.Text = this.Run(this.tbPython.Text, args);
             }
         }
@@ -199,7 +215,7 @@ namespace EsPy.Dialogs
         {
             if (this.CheckPaths(false))
             {
-                string args = String.Format("{0} -p {1} -b {2} chip_id", this.tbEsptool.Text, this.PortName, this.BaudRate);
+                string args = String.Format("\"{0}\" -p {1} -b {2} chip_id", this.tbEsptool.Text, this.PortName, this.BaudRate);
                 this.textBox4.Text = this.Run(this.tbPython.Text, args);
             }
         }
@@ -210,7 +226,7 @@ namespace EsPy.Dialogs
             {
                 if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    string args = String.Format("{0} -p {1} -b {2} erase_flash", this.tbEsptool.Text, this.PortName, this.BaudRate);
+                    string args = String.Format("\"{0}\" -p {1} -b {2} erase_flash", this.tbEsptool.Text, this.PortName, this.BaudRate);
                     this.textBox4.Text = this.Run(this.tbPython.Text, args);
                 }
             }
@@ -222,7 +238,10 @@ namespace EsPy.Dialogs
             {
                 if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    string args = String.Format("{0} -p {1} -b {2} write_flash --verify --flash_size=detect 0 {3}", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+                    string args = String.Format("\"{0}\" -p {1} -b {2} write_flash --verify --flash_size=detect 0 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+
+                    args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm dio -ff 20m -fs detect 0x0000 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+
                     this.textBox4.Text = this.Run(this.tbPython.Text, args);
                 }
             }
@@ -232,7 +251,8 @@ namespace EsPy.Dialogs
         {
             if (this.CheckPaths())
             {
-                string args = String.Format("{0} -p {1} -b {2} verify_flash 0x40000 {3}", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+                //string args = String.Format("\"{0}\" -p \"{1}\" -b {2} verify_flash 0x40000 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+                string args = String.Format("\"{0}\" -p \"{1}\" -b {2} verify_flash 0x00000 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
                 this.textBox4.Text = this.Run(this.tbPython.Text, args);
             }
         }

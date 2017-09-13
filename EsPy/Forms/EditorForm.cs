@@ -61,7 +61,7 @@ namespace EsPy.Forms
         }
 
         private bool IsRunnable
-        { get { return this.Port != null && this.Port.IsOpen && !this.Port.Busy && this.scintilla.Lexer == Lexer.Python; } }
+        { get { return this.Port != null && this.Port.IsOpen && !this.Port.Busy && this.Lexer == Lexer.Python; } }
 
         private PySerial FPort = null;
         public PySerial Port
@@ -233,7 +233,7 @@ namespace EsPy.Forms
             else
             {
                 this.SaveToFile(this.FileName);
-                this.scintilla.SetSavePoint();
+                //this.scintilla.SetSavePoint();
                 this.UpdateUI();
             }
             return DialogResult.OK;
@@ -259,7 +259,7 @@ namespace EsPy.Forms
 
         private void mnSave_Click(object sender, EventArgs e)
         {
-            if (Helpers.QuestionBox("Would you like to save changes?") == DialogResult.Yes)
+            //if (Helpers.QuestionBox("Would you like to save changes?") == DialogResult.Yes)
             {
                 this.Save();
             }

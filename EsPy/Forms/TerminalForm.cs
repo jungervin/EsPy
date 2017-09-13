@@ -127,6 +127,7 @@ namespace EsPy.Forms
             this.scintilla.ReadOnly = false;
             this.scintilla.Append($"{this.Port.PortName} {this.Port.BaudRate } Connected...\r\n");
             this.scintilla.Append("Press CTRL + D or Soft Reset Button on the Toolbar\r\n");
+            this.scintilla.Append("Press CTRL + C to interrupt current program.\r\n");
         }
 
         public ToolStrip ToolStrip
