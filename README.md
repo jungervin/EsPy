@@ -52,8 +52,8 @@ To use all features ([esptool](https://github.com/espressif/esptool), [jedi](htt
 - Filemanager is enabled when device is connected and not busy
 - Esptool enabled when the port is closed
 
-### Download v1.0.0.5:
-https://github.com/jungervin/EsPy/raw/master/EsPy/Release/EsPy.1.0.0.5.7z
+### Downloads
+https://github.com/jungervin/EsPy/tree/master/EsPy/Release
 
 ### Images:
 ![alt text](https://raw.githubusercontent.com/jungervin/EsPy/master/EsPy/Helps/images/espy.png "Main screen")
