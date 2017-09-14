@@ -20,7 +20,7 @@ To use all features ([esptool](https://github.com/espressif/esptool), [jedi](htt
 
 **After Python intsallation:**
 
-- python -m pip install --upgarde pip  
+- python -m pip install --upgrade pip  
 - python -m pip install esptool
 - python -m pip install jedi
 - python -m pip install pylint
