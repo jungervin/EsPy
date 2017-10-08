@@ -82,15 +82,15 @@ namespace EsPy.Components
             this.listBox.Items.Clear();
         }
 
-        public void Add(Completion item)
-        {
-            this.listBox.Items.Add(item);
-        }
+        //public void Add(Completion item)
+        //{
+        //    this.listBox.Items.Add(item);
+        //}
 
-        public void AddRange(List<Completion> list)
-        {
-            this.listBox.Items.AddRange(list.ToArray());
-        }
+        //public void AddRange(List<Completion> list)
+        //{
+        //    this.listBox.Items.AddRange(list.ToArray());
+        //}
 
         public int Count
         { get { return this.listBox.Items.Count; } }
@@ -119,8 +119,8 @@ namespace EsPy.Components
         //    this.SelectedIndex = this.listBox.Items.Count - 1;
         //}
 
-        public BaseDefinition SelectedItem
-        { get { return this.listBox.SelectedItem as BaseDefinition; } }
+        //public BaseDefinition SelectedItem
+        //{ get { return this.listBox.SelectedItem as BaseDefinition; } }
 
         public void SelectPrevious()
         {

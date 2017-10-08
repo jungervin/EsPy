@@ -34,13 +34,13 @@ namespace EsPy
 
         private DeserializeDockContent deserializeDockContent;
         public TerminalForm TerminalForm = null;
-        public ErrorListForm ErrorListForm = null;
+        //public ErrorListForm ErrorListForm = null;
         public MainForm()
         {
             InitializeComponent();
             Globals.MainForm = this;
 
-            Globals.PyClientStart();
+            //Globals.PyClientStart();
 
             AutoScaleMode = AutoScaleMode.Dpi;
 
@@ -263,11 +263,6 @@ namespace EsPy
                 this.TerminalForm.Show(this.dockPanel1);
             }
 
-            if (this.ErrorListForm == null)
-            {
-                this.ErrorListForm = new ErrorListForm();
-                this.ErrorListForm.Show(this.dockPanel1);
-            }
             //if (!this.ComportIsExists)
             //{
             //    this.btnConnect.Enabled = false;
@@ -342,8 +337,8 @@ namespace EsPy
                 }
             }
 
-            if (Globals.PyClient != null)
-                Globals.PyClient.Stop();
+            //if (Globals.PyClient != null)
+            //    Globals.PyClient.Stop();
         }
 
         private bool CanConnect
@@ -358,15 +353,16 @@ namespace EsPy
         {
   
             this.mnTerminal.Enabled = this.TerminalForm == null;
-            this.JediState.Text = Globals.PyClient != null ? "Connected" : "Not connected";
+            //this.JediState.Text = Globals.PyClient != null ? "Connected" : "Not connected";
         }
 
         private void SetSchema(object sender, System.EventArgs e)
         {
+            
             if (true)
             {
                 this.dockPanel1.Theme = this.vS2015BlueTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015BlueTheme1);
+                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2008, vS2015BlueTheme1);
             }      
 
             if (dockPanel1.Theme.ColorPalette != null)
@@ -403,14 +399,14 @@ namespace EsPy
                 this.TerminalForm.IsHidden = false;
                 return this.TerminalForm;
             }
-            else if (persistString == typeof(ErrorListForm).ToString())
-            {
-                if (this.ErrorListForm != null)
-                    return this.ErrorListForm;
-                this.ErrorListForm = new ErrorListForm();
-                this.ErrorListForm.IsHidden = false;
-                return this.ErrorListForm;
-            }
+            //else if (persistString == typeof(ErrorListForm).ToString())
+            //{
+            //    if (this.ErrorListForm != null)
+            //        return this.ErrorListForm;
+            //    this.ErrorListForm = new ErrorListForm();
+            //    this.ErrorListForm.IsHidden = false;
+            //    return this.ErrorListForm;
+            //}
 
             else if (persistString == typeof(EditorForm).ToString())
             {
@@ -439,7 +435,6 @@ namespace EsPy
             ToolStripManager.RevertMerge(this.toolStrip1);
             if (this.dockPanel1.ActiveContent != null)
             {
-
                 if (this.dockPanel1.ActiveContent is IForm)
                 {
                     IForm form = this.dockPanel1.ActiveContent as IForm;
@@ -447,39 +442,23 @@ namespace EsPy
                         ToolStripManager.Merge(form.ToolStrip, this.toolStrip1);
                     if (form.MenuStrip != null)
                         ToolStripManager.Merge(form.MenuStrip, this.menuStrip1);
-
                 }
             }
             this.UpdateUI();
         }
+
         private void dockPanel1_ActiveDocumentChanged(object sender, EventArgs e)
         {
-            ToolStripManager.RevertMerge(this.menuStrip1);
-            ToolStripManager.RevertMerge(this.toolStrip1);
             if (this.dockPanel1.ActiveContent is IDocument)
             {
                 IDocument doc = this.dockPanel1.ActiveDocument as IDocument;
                 doc.CanPaste = Clipboard.ContainsText();
                 doc.UpdateUI();
-                IDocument form = this.dockPanel1.ActiveDocument as IDocument;
-                if (form.ToolStrip != null)
-                    ToolStripManager.Merge(form.ToolStrip, this.toolStrip1);
-                if (form.MenuStrip != null)
-                    ToolStripManager.Merge(form.MenuStrip, this.menuStrip1);
             }
-            //else if (this.dockPanel1.ActiveContent != null)
-            //{
-               
-            //    if (this.dockPanel1.ActiveContent is IForm)
-            //    {
-            //        IForm form = this.dockPanel1.ActiveContent as IForm;
-            //        if (form.ToolStrip != null)
-            //            ToolStripManager.Merge(form.ToolStrip, this.toolStrip1);
-            //        if (form.MenuStrip != null)
-            //            ToolStripManager.Merge(form.MenuStrip, this.menuStrip1);
-                    
-            //    }
-            //}
+            else
+            {
+                this.FilePath.Text = "";
+            }
             this.UpdateUI();
         }
         
@@ -950,6 +929,10 @@ namespace EsPy
                 d.ShowDialog();
                 d.Dispose();
             }
+            else
+            {
+                MessageBox.Show("Select a Port first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void mnFileManager_Click(object sender, EventArgs e)
@@ -971,7 +954,7 @@ namespace EsPy
 
         private void mnAbout_Click(object sender, EventArgs e)
         {
-            Splash s = new Splash();
+            About s = new About();
             s.ShowDialog();
             s.Dispose();
 
@@ -980,11 +963,11 @@ namespace EsPy
             //d.Dispose();
         }
 
-        private void mnErrorList_Click(object sender, EventArgs e)
-        {
-            if (this.ErrorListForm != null)
-                this.ErrorListForm.Show(this.dockPanel1);
-        }
+        //private void mnErrorList_Click(object sender, EventArgs e)
+        //{
+        //    if (this.ErrorListForm != null)
+        //        this.ErrorListForm.Show(this.dockPanel1);
+        //}
 
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
@@ -1014,6 +997,25 @@ namespace EsPy
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ePS8266ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://docs.micropython.org/en/latest/esp8266/");
+        }
+
+        private void mnOpenFileFolder_Click(object sender, EventArgs e)
+        {
+            if (this.dockPanel1.ActiveDocument != null && this.dockPanel1.ActiveDocument is IDocument)
+            {
+                IDocument d = this.dockPanel1.ActiveDocument as IDocument;
+                System.Diagnostics.Process.Start("explorer.exe", $"/select, \"{d.FileName}\"");
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            mnOpenFileFolder.Enabled = this.dockPanel1.ActiveDocument != null && this.dockPanel1.ActiveDocument is IDocument;
         }
     }
 }

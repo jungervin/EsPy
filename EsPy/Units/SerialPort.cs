@@ -30,10 +30,10 @@ namespace EsPy.Units
 
         public const string PROMPT = ">>> ";
         public const string DOTS = "... ";
-        private char C0 = '\0';
-        private char C1 = '\0';
-        private char C2 = '\0';
-        private char C3 = '\0';
+        //private char C0 = '\0';
+        //private char C1 = '\0';
+        //private char C2 = '\0';
+        //private char C3 = '\0';
 
         public SerialPort()
         {
@@ -249,7 +249,6 @@ namespace EsPy.Units
         }
 
         private char[] FPrompt = new char[] { '\0', '\0', '\0', '\0' };
-
         private void PromptShift(char c)
         {
             //for (int i = 0; i < this.FPrompt.Length - 1; i++)
@@ -283,11 +282,7 @@ namespace EsPy.Units
         {
             this.Busy = true;
             string part = this.SP.ReadExisting();
-
-
             this.Prompt(part);
-
-           
             return part;
         }
 

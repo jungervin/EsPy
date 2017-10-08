@@ -1,4 +1,4 @@
-﻿using EsPy.Python.Jedi;
+﻿//using EsPy.Python.Jedi;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

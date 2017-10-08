@@ -120,15 +120,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\CompletionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Components\CompletionForm.Designer.cs">
-      <DependentUpon>CompletionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Components\ExListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Components\ExScintilla.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -177,20 +168,14 @@
     <Compile Include="Forms\EditorForm.Designer.cs">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ErrorListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ErrorListForm.Designer.cs">
-      <DependentUpon>ErrorListForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\IDeviceChange.cs" />
     <Compile Include="Forms\IDocument.cs" />
     <Compile Include="Forms\IForm.cs" />
-    <Compile Include="Forms\Splash.cs">
+    <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Splash.Designer.cs">
-      <DependentUpon>Splash.cs</DependentUpon>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TerminalForm.cs">
       <SubType>Form</SubType>
@@ -207,13 +192,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Python\Jedi\BaseDefinition.cs" />
-    <Compile Include="Python\Jedi\Completion.cs" />
-    <Compile Include="Python\Jedi\CompletionRequest.cs" />
-    <Compile Include="Python\Jedi\Request.cs" />
-    <Compile Include="Python\Jedi\Script.cs" />
-    <Compile Include="Python\PyClient.cs" />
-    <Compile Include="Python\PyRequest.cs" />
     <Compile Include="Units\IPort.cs" />
     <Compile Include="Units\PySerial.cs" />
     <Compile Include="Units\PySerialEvents.cs" />
@@ -225,16 +203,8 @@
     <Compile Include="Utility\FileFormat.cs" />
     <Compile Include="Utility\FileFormats.cs" />
     <Compile Include="Utility\Helpers.cs" />
-    <Compile Include="Utility\Py.cs" />
     <Compile Include="Utility\TextHelper.cs" />
-    <None Include="pip.bat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Content Include="Helps\images\esp8266-wemos-d1-mini-pinout.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\umqtt\simple.py" />
-    <Content Include="Lib\ssd1306.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Release\EsPy.1.0.0.4.7z" />
@@ -245,40 +215,6 @@
     <None Include="Resources\compile.png" />
     <None Include="Resources\kservices.png" />
     <None Include="Resources\syntax.png" />
-    <Content Include="Lib\apa102.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\dht.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\ds18x20.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\flashbdev.py" />
-    <Content Include="Lib\inisetup.py" />
-    <Content Include="Lib\machine.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\neopixel.py" />
-    <Content Include="Lib\ntptime.py" />
-    <Content Include="Lib\onewire.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\port_diag.py" />
-    <Content Include="Lib\upip.py" />
-    <Content Include="Lib\upip_utarfile.py" />
-    <Content Include="Lib\webrepl.py" />
-    <Content Include="Lib\webrepl_setup.py" />
-    <Content Include="Lib\websocket_helper.py" />
-    <Content Include="Scripts\PyHost.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EmbeddedResource Include="Components\CompletionForm.resx">
-      <DependentUpon>CompletionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Components\ExListBox.resx">
-      <DependentUpon>ExListBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Components\ExScintilla.resx">
       <DependentUpon>ExScintilla.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,11 +242,8 @@
     <EmbeddedResource Include="Forms\EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ErrorListForm.resx">
-      <DependentUpon>ErrorListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Splash.resx">
-      <DependentUpon>Splash.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TerminalForm.resx">
       <DependentUpon>TerminalForm.cs</DependentUpon>

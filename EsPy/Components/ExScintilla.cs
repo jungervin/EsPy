@@ -1,5 +1,5 @@
-﻿using EsPy.Python;
-using EsPy.Python.Jedi;
+﻿//using EsPy.Python;
+//using EsPy.Python.Jedi;
 using EsPy.Utility;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -38,8 +38,8 @@ namespace EsPy.Components
         {
             this.InitializeComponent();
             this.CompletionEnabled = false;
-            this.Completions = new List<Completion>(500);
-            this.MouseDwellTime = 500;
+            //this.Completions = new List<Completion>(500);
+            //this.MouseDwellTime = 500;
         }
 
         public bool CompletionEnabled
@@ -62,97 +62,97 @@ namespace EsPy.Components
 
         }
 
-        private CompletionForm FCompletionForm = null;
-        public void HideCompletions()
-        {
-            if (this.FCompletionForm != null)
-            {
-                this.FCompletionForm.Dispose();
-                this.FCompletionForm = null;
-            }
-        }
+        //private CompletionForm FCompletionForm = null;
+        //public void HideCompletions()
+        //{
+        //    if (this.FCompletionForm != null)
+        //    {
+        //        this.FCompletionForm.Dispose();
+        //        this.FCompletionForm = null;
+        //    }
+        //}
 
-        public void CompletionFormDisposing(object sender, EventArgs e)
-        {
-            this.FCompletionForm.FormDisposing -= CompletionFormDisposing;
-            this.FCompletionForm = null;
-        }
+        //public void CompletionFormDisposing(object sender, EventArgs e)
+        //{
+        //    this.FCompletionForm.FormDisposing -= CompletionFormDisposing;
+        //    this.FCompletionForm = null;
+        //}
 
-        public void ShowCompletion()
-        {
-            //this.Capture = true;
-            this.HideCompletions();
-            this.FCompletionForm = new CompletionForm();
-            this.FCompletionForm.FormDisposing += CompletionFormDisposing;
-            this.FCompletionForm.Scintilla = this;
+        //public void ShowCompletion()
+        //{
+        //    //this.Capture = true;
+        //    this.HideCompletions();
+        //    this.FCompletionForm = new CompletionForm();
+        //    this.FCompletionForm.FormDisposing += CompletionFormDisposing;
+        //    this.FCompletionForm.Scintilla = this;
 
-            int word_start_pos = Utility.TextHelper.KeywordStartPosition(this.Text, this.CurrentPosition - 1) + 1;
-            int x = this.PointXFromPosition(word_start_pos);
-            int y = this.PointYFromPosition(word_start_pos);
+        //    int word_start_pos = Utility.TextHelper.KeywordStartPosition(this.Text, this.CurrentPosition - 1) + 1;
+        //    int x = this.PointXFromPosition(word_start_pos);
+        //    int y = this.PointYFromPosition(word_start_pos);
 
-            this.FCompletionForm.Show();
+        //    this.FCompletionForm.Show();
 
-            Point p = this.PointToScreen(new Point(x, y));
+        //    Point p = this.PointToScreen(new Point(x, y));
 
-            this.FCompletionForm.TopLevel = true;
-            this.FCompletionForm.TopMost = true;
-            this.FCompletionForm.Top = p.Y + (int)(this.Font.Height * 1.2);
-            this.FCompletionForm.Left = p.X;
-            this.Focus();
-            this.SetFilter(0);
-        }
+        //    this.FCompletionForm.TopLevel = true;
+        //    this.FCompletionForm.TopMost = true;
+        //    this.FCompletionForm.Top = p.Y + (int)(this.Font.Height * 1.2);
+        //    this.FCompletionForm.Left = p.X;
+        //    this.Focus();
+        //    this.SetFilter(0);
+        //}
 
-        private List<Completion> Completions
-        {get; set; }
+        //private List<Completion> Completions
+        //{get; set; }
 
-        private void SetFilter(int dx)
-        {
-            this.FCompletionForm.Clear();
-            Line line = this.Lines[this.CurrentLine];
-            int l = this.CurrentLine + dx;
-            int c = this.CurrentPosition - line.Position;
+        //private void SetFilter(int dx)
+        //{
+        //    this.FCompletionForm.Clear();
+        //    Line line = this.Lines[this.CurrentLine];
+        //    int l = this.CurrentLine + dx;
+        //    int c = this.CurrentPosition - line.Position;
 
-            Words words = TextHelper.FindWords(line.Text, c + dx);
+        //    Words words = TextHelper.FindWords(line.Text, c + dx);
             
-            List<Completion> list = this.Completions.Where(k => k.name.ToLower().StartsWith(words.Filter.ToLower())).ToList();
+        //    List<Completion> list = this.Completions.Where(k => k.name.ToLower().StartsWith(words.Filter.ToLower())).ToList();
 
-            // Todo: Add/Remove items
-            this.FCompletionForm.AddRange(list);
+        //    // Todo: Add/Remove items
+        //    this.FCompletionForm.AddRange(list);
 
-            if (words.Filter != "" && this.FCompletionForm.Count > 0)
-            {
-                this.FCompletionForm.SelectedIndex = 0;
-            }
-            else
-            {
+        //    if (words.Filter != "" && this.FCompletionForm.Count > 0)
+        //    {
+        //        this.FCompletionForm.SelectedIndex = 0;
+        //    }
+        //    else
+        //    {
                 
-            }
-        }
+        //    }
+        //}
 
-        private void Complete()
-        {
+        //private void Complete()
+        //{
             
-            if (this.FCompletionForm.SelectedItem != null)
-            {
-                string name = this.FCompletionForm.SelectedItem.name;
-                // prevent Delete & Insert events!!)
-                this.HideCompletions();
+        //    if (this.FCompletionForm.SelectedItem != null)
+        //    {
+        //        string name = this.FCompletionForm.SelectedItem.name;
+        //        // prevent Delete & Insert events!!)
+        //        this.HideCompletions();
 
-                if (name != null)
-                {
-                    Line line = this.Lines[this.CurrentLine];
-                    int l = this.CurrentLine + 1;
-                    int c = this.CurrentPosition - line.Position;
+        //        if (name != null)
+        //        {
+        //            Line line = this.Lines[this.CurrentLine];
+        //            int l = this.CurrentLine + 1;
+        //            int c = this.CurrentPosition - line.Position;
 
-                    Words words = TextHelper.FindWords(line.Text, c);
+        //            Words words = TextHelper.FindWords(line.Text, c);
 
-                    this.DeleteRange(line.Position + words.Pos, words.Filter.Length);
-                    this.InsertText(line.Position + words.Pos, name);
-                    this.GotoPosition(line.Position + words.Pos + name.Length);                    
-                }
-            }
-            else this.HideCompletions();
-        }
+        //            this.DeleteRange(line.Position + words.Pos, words.Filter.Length);
+        //            this.InsertText(line.Position + words.Pos, name);
+        //            this.GotoPosition(line.Position + words.Pos + name.Length);                    
+        //        }
+        //    }
+        //    else this.HideCompletions();
+        //}
          
         //protected override void WndProc(ref Message m)
         //{
@@ -167,150 +167,150 @@ namespace EsPy.Components
         //    base.WndProc(ref m);
         //}
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys key)
-        {
-            if (msg.Msg == WM_KEYDOWN || msg.Msg == WM_SYSKEYDOWN)
-            {
-                switch (key)
-                {
-                    case Keys.Control | Keys.Space:                      
-                        this.FindCompletions();
-                        return true;
+        //protected override bool ProcessCmdKey(ref Message msg, Keys key)
+        //{
+        //    if (msg.Msg == WM_KEYDOWN || msg.Msg == WM_SYSKEYDOWN)
+        //    {
+        //        switch (key)
+        //        {
+        //            case Keys.Control | Keys.Space:                      
+        //                //this.FindCompletions();
+        //                return true;
 
-                    case Keys.Escape:
-                        this.HideCompletions();
-                        return true;
+        //            case Keys.Escape:
+        //                //this.HideCompletions();
+        //                return true;
 
-                    case Keys.Enter:
-                    case Keys.Tab:
-                        if (this.FCompletionForm != null)
-                        {
-                            this.Complete();
-                            return true;
-                        }
-                        break;
+        //            case Keys.Enter:
+        //            case Keys.Tab:
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    this.Complete();
+        //                //    return true;
+        //                //}
+        //                break;
 
-                    case Keys.Left:
+        //            case Keys.Left:
 
-                        if (this.FCompletionForm != null)
-                        {
-                            int p = this.CurrentPosition - 1;
-                            char c = this.Text[p];
-                            if (c == '.' || char.IsWhiteSpace(c))
-                            {
-                                this.HideCompletions();
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    int p = this.CurrentPosition - 1;
+        //                //    char c = this.Text[p];
+        //                //    if (c == '.' || char.IsWhiteSpace(c))
+        //                //    {
+        //                //        this.HideCompletions();
                                 
-                            }
-                            else
-                            {
-                                this.SetFilter(-1);
-                            }
-                        }
-                        break;
+        //                //    }
+        //                //    else
+        //                //    {
+        //                //        this.SetFilter(-1);
+        //                //    }
+        //                //}
+        //                break;
 
-                    case Keys.Right:
-                        if (this.FCompletionForm != null)
-                        {
-                            int p = this.CurrentPosition ;
-                            char c = this.Text[p];
-                            if (c == '.' || char.IsWhiteSpace(c))
-                            {
-                                this.HideCompletions();
-                            }
-                            else
-                            {
-                                this.SetFilter(1);
-                            }
-                        }
-                        break;
+        //            case Keys.Right:
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    int p = this.CurrentPosition ;
+        //                //    char c = this.Text[p];
+        //                //    if (c == '.' || char.IsWhiteSpace(c))
+        //                //    {
+        //                //        this.HideCompletions();
+        //                //    }
+        //                //    else
+        //                //    {
+        //                //        this.SetFilter(1);
+        //                //    }
+        //                //}
+        //                break;
 
-                    case Keys.Up:
-                        if (this.FCompletionForm != null)
-                        {
-                            this.FCompletionForm.SelectPrevious();
-                            return true;
-                        }
-                        break;
+        //            case Keys.Up:
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    this.FCompletionForm.SelectPrevious();
+        //                //    return true;
+        //                //}
+        //                break;
 
-                    case Keys.Down:
-                        if (this.FCompletionForm != null)
-                        {
-                            this.FCompletionForm.SelectNext();
-                            return true;
-                        }
-                        break;
+        //            case Keys.Down:
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    this.FCompletionForm.SelectNext();
+        //                //    return true;
+        //                //}
+        //                break;
 
-                    case Keys.Home:
-                        if (this.FCompletionForm != null)
-                        {
-                            this.HideCompletions();
-                        }
-                        break;
+        //            case Keys.Home:
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    this.HideCompletions();
+        //                //}
+        //                break;
 
-                    case Keys.End:
-                        if (this.FCompletionForm != null)
-                        {
-                            this.HideCompletions();
-                        }
-                        break;
-                }
-            }
-            return base.ProcessCmdKey(ref msg, key);
-        }
+        //            case Keys.End:
+        //                //if (this.FCompletionForm != null)
+        //                //{
+        //                //    this.HideCompletions();
+        //                //}
+        //                break;
+        //        }
+        //    }
+        //    return base.ProcessCmdKey(ref msg, key);
+        //}
 
-        private int CompletionPosition = 0;
+        //private int CompletionPosition = 0;
 
-        private void FindCompletions()
-        {
-            Line line = this.Lines[this.CurrentLine];
-            int l = this.CurrentLine + 1;
-            int c = this.CurrentPosition - line.Position;
-            Words words = TextHelper.FindWords(line.Text, c);
-            this.CompletionPosition = line.Position + words.Pos;
-            this.FindCompletions(l, c);
-        }
+        //private void FindCompletions()
+        //{
+        //    Line line = this.Lines[this.CurrentLine];
+        //    int l = this.CurrentLine + 1;
+        //    int c = this.CurrentPosition - line.Position;
+        //    Words words = TextHelper.FindWords(line.Text, c);
+        //    this.CompletionPosition = line.Position + words.Pos;
+        //    this.FindCompletions(l, c);
+        //}
 
-        private void FindCompletions(int line, int column)
-        {
-            if (Globals.PyClient != null && this.Lexer == Lexer.Python && this.CompletionEnabled)
-            {
-                this.HideCompletions();
-                this.Completions.Clear();
+        //private void FindCompletions(int line, int column)
+        //{
+        //    if (Globals.PyClient != null && this.Lexer == Lexer.Python && this.CompletionEnabled)
+        //    {
+        //        this.HideCompletions();
+        //        this.Completions.Clear();
 
-                Script script = new Script(this.Text, line, column);
+        //        Script script = new Script(this.Text, line, column);
 
-                PyRequest req = new CompletionRequest(script);
-                string json = JsonConvert.SerializeObject(req);
-                try
-                {
-                    JToken token = Globals.PyClient.DoRequest<JToken>(req);
-                    if (token != null && token["completions"] is JArray)
-                    {
-                        JArray items = token["completions"] as JArray;
-                        foreach (JToken t in items)
-                        {
-                            Completion comp = JsonConvert.DeserializeObject<Completion>(t.ToString());
-                            if (comp != null)
-                                this.Completions.Add(comp);
-                        }
+        //        PyRequest req = new CompletionRequest(script);
+        //        string json = JsonConvert.SerializeObject(req);
+        //        try
+        //        {
+        //            JToken token = Globals.PyClient.DoRequest<JToken>(req);
+        //            if (token != null && token["completions"] is JArray)
+        //            {
+        //                JArray items = token["completions"] as JArray;
+        //                foreach (JToken t in items)
+        //                {
+        //                    Completion comp = JsonConvert.DeserializeObject<Completion>(t.ToString());
+        //                    if (comp != null)
+        //                        this.Completions.Add(comp);
+        //                }
 
-                        //Todo: move to Show
-                        if (this.Completions.Count > 0)
-                        {
-                            this.ShowCompletion();
-                        }
-                        else
-                        {
-                            this.CallTipShow(this.CurrentPosition, "No suggestions");
-                        }
-                    }
-                }
-                catch
-                { 
-                    this.CallTipShow(this.CurrentPosition, "Try again**");
-                }
-            }
-        }
+        //                //Todo: move to Show
+        //                if (this.Completions.Count > 0)
+        //                {
+        //                    this.ShowCompletion();
+        //                }
+        //                else
+        //                {
+        //                    this.CallTipShow(this.CurrentPosition, "No suggestions");
+        //                }
+        //            }
+        //        }
+        //        catch
+        //        { 
+        //            this.CallTipShow(this.CurrentPosition, "Try again**");
+        //        }
+        //    }
+        //}
 
         private string GetAttr(XmlNode xnode, string attr)
         {
@@ -512,54 +512,54 @@ namespace EsPy.Components
 
         private void ExScintilla_CharAdded(object sender, CharAddedEventArgs e)
         {
-            var currentPos = this.CurrentPosition;
-            var wordStartPos = this.WordStartPosition(currentPos, true);
+            //var currentPos = this.CurrentPosition;
+            //var wordStartPos = this.WordStartPosition(currentPos, true);
 
-            char c = this.Text[this.CurrentPosition-1];
-            // Display the autocompletion list
-            var lenEntered = currentPos - wordStartPos;
-            if (e.Char == ' ' && this.FCompletionForm != null)
-            {
-                this.HideCompletions();
-            }
-            else if (e.Char == '(')
-            {
-                Application.DoEvents();
-                this.FindCompletions();
+            //char c = this.Text[this.CurrentPosition-1];
+            //// Display the autocompletion list
+            //var lenEntered = currentPos - wordStartPos;
+            //if (e.Char == ' ' && this.FCompletionForm != null)
+            //{
+            //    this.HideCompletions();
+            //}
+            //else if (e.Char == '(')
+            //{
+            //    Application.DoEvents();
+            //    this.FindCompletions();
 
-                if (this.Completions.Count == 1)
-                {
-                    Completion comp = this.Completions[0];
-                }
-            }
-            else if (e.Char == '.')
-            {
-                Application.DoEvents();
-                this.FindCompletions();
-            }
-            else if (this.FCompletionForm == null && lenEntered == 1)
-            {
-                this.FindCompletions();
-            }
-            else if (this.FCompletionForm != null)
-            {
-                this.SetFilter(0);
-            }
+            //    if (this.Completions.Count == 1)
+            //    {
+            //        Completion comp = this.Completions[0];
+            //    }
+            //}
+            //else if (e.Char == '.')
+            //{
+            //    Application.DoEvents();
+            //    this.FindCompletions();
+            //}
+            //else if (this.FCompletionForm == null && lenEntered == 1)
+            //{
+            //    this.FindCompletions();
+            //}
+            //else if (this.FCompletionForm != null)
+            //{
+            //    this.SetFilter(0);
+            //}
         }
 
         private void ExScintilla_Delete(object sender, ModificationEventArgs e)
         {
-            if (this.FCompletionForm != null)
-            {
-                if (e.Text.Contains('.') || e.Text.Contains("(") || e.Text.Contains(")") || this.CurrentPosition < this.CompletionPosition)
-                {
-                    this.HideCompletions();
-                }
-                else
-                {
-                    this.SetFilter(0);
-                }
-            }
+            //if (this.FCompletionForm != null)
+            //{
+            //    if (e.Text.Contains('.') || e.Text.Contains("(") || e.Text.Contains(")") || this.CurrentPosition < this.CompletionPosition)
+            //    {
+            //        this.HideCompletions();
+            //    }
+            //    else
+            //    {
+            //        this.SetFilter(0);
+            //    }
+            //}
 
         }
 
@@ -570,20 +570,20 @@ namespace EsPy.Components
 
         private void ExScintilla_Leave(object sender, EventArgs e)
         {
-            if (this.FCompletionForm != null && this.FCompletionForm.Visible)
-                this.HideCompletions();
+            //if (this.FCompletionForm != null && this.FCompletionForm.Visible)
+            //    this.HideCompletions();
         }
 
         private void ExScintilla_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.FCompletionForm != null)
-                this.HideCompletions();
+            //if (this.FCompletionForm != null)
+            //    this.HideCompletions();
         }
 
         private void ExScintilla_Resize(object sender, EventArgs e)
         {
-            if (this.FCompletionForm != null)
-                this.HideCompletions();
+            //if (this.FCompletionForm != null)
+            //    this.HideCompletions();
         }
 
         private void ExScintilla_DwellEnd(object sender, DwellEventArgs e)

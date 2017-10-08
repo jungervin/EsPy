@@ -250,5 +250,17 @@ namespace EsPy.Properties {
                 this["PyServerPort"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int EspFlashMode {
+            get {
+                return ((int)(this["EspFlashMode"]));
+            }
+            set {
+                this["EspFlashMode"] = value;
+            }
+        }
     }
 }

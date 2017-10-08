@@ -35,6 +35,7 @@ namespace EsPy.Units
 
         public void SoftReset()
         {
+          
             this.Write(CTRL_D);
         }
 

@@ -44,8 +44,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.FlashMode = new System.Windows.Forms.ComboBox();
             this.cbPort = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cbBaudrate = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,7 +58,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,19 +143,19 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox4.Location = new System.Drawing.Point(12, 221);
+            this.textBox4.Location = new System.Drawing.Point(12, 244);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox4.Size = new System.Drawing.Size(612, 185);
+            this.textBox4.Size = new System.Drawing.Size(612, 162);
             this.textBox4.TabIndex = 0;
             // 
             // btnErase
             // 
-            this.btnErase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnErase.Location = new System.Drawing.Point(412, 412);
+            this.btnErase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnErase.Location = new System.Drawing.Point(358, 413);
             this.btnErase.Name = "btnErase";
-            this.btnErase.Size = new System.Drawing.Size(100, 23);
+            this.btnErase.Size = new System.Drawing.Size(135, 23);
             this.btnErase.TabIndex = 4;
             this.btnErase.Text = "1. Erase...";
             this.btnErase.UseVisualStyleBackColor = true;
@@ -160,12 +163,12 @@
             // 
             // btnWrite
             // 
-            this.btnWrite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWrite.Location = new System.Drawing.Point(518, 412);
+            this.btnWrite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWrite.Location = new System.Drawing.Point(494, 412);
             this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(100, 23);
+            this.btnWrite.Size = new System.Drawing.Size(124, 23);
             this.btnWrite.TabIndex = 5;
-            this.btnWrite.Text = "2. Write + Verify...";
+            this.btnWrite.Text = "2. Write...";
             this.btnWrite.UseVisualStyleBackColor = true;
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
@@ -209,9 +212,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.FlashMode);
             this.groupBox1.Controls.Add(this.cbPort);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbBaudrate);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbPython);
@@ -226,10 +232,21 @@
             this.groupBox1.Controls.Add(this.btnFirmware);
             this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(612, 156);
+            this.groupBox1.Size = new System.Drawing.Size(612, 179);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
+            // 
+            // label9
+            // 
+            this.label9.Image = global::EsPy.Properties.Resources.Warning;
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.Location = new System.Drawing.Point(378, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(228, 23);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "       Make sure the selected port is closed!";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
@@ -241,6 +258,22 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Default location: YourPython\\Lib\\site-packages\\esptool.py";
             // 
+            // FlashMode
+            // 
+            this.FlashMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FlashMode.FormattingEnabled = true;
+            this.FlashMode.Items.AddRange(new object[] {
+            "keep",
+            "qio",
+            "qout",
+            "dio",
+            "dout"});
+            this.FlashMode.Location = new System.Drawing.Point(75, 144);
+            this.FlashMode.Name = "FlashMode";
+            this.FlashMode.Size = new System.Drawing.Size(104, 21);
+            this.FlashMode.TabIndex = 0;
+            this.FlashMode.Validating += new System.ComponentModel.CancelEventHandler(this.cbBaudrate_Validating);
+            // 
             // cbPort
             // 
             this.cbPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -250,6 +283,15 @@
             this.cbPort.Size = new System.Drawing.Size(104, 21);
             this.cbPort.TabIndex = 0;
             this.cbPort.Validating += new System.ComponentModel.CancelEventHandler(this.cbBaudrate_Validating);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 147);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Flash Mode";
             // 
             // cbBaudrate
             // 
@@ -353,16 +395,15 @@
             this.linkLabel2.Text = "http://micropython.org/download#esp8266";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
-            // label9
+            // label11
             // 
-            this.label9.Image = global::EsPy.Properties.Resources.Warning;
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(378, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(228, 23);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "       Make sure the selected port is closed!";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Maroon;
+            this.label11.Location = new System.Drawing.Point(207, 147);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(230, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "NodeMCU, Wemos D1: dio. Sonoff Relay: dout";
             // 
             // EspToolDialog
             // 
@@ -426,5 +467,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox FlashMode;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

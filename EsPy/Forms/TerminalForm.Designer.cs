@@ -56,6 +56,7 @@
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmShowEOL = new System.Windows.Forms.ToolStripMenuItem();
             this.cmShowWhitespace = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.scintilla = new EsPy.Components.Terminal();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -226,16 +227,17 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(664, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(664, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Visible = false;
@@ -408,6 +410,16 @@
             this.cmShowWhitespace.Text = "Show Whitespace";
             this.cmShowWhitespace.Click += new System.EventHandler(this.mnShowWhitespace_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::EsPy.Properties.Resources.editclear;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.mnClean_Click);
+            // 
             // scintilla
             // 
             this.scintilla.AutoCAutoHide = false;
@@ -421,12 +433,12 @@
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookForward;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Python;
-            this.scintilla.Location = new System.Drawing.Point(0, 25);
+            this.scintilla.Location = new System.Drawing.Point(0, 0);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
             this.scintilla.Port = null;
             this.scintilla.ReadOnly = true;
-            this.scintilla.Size = new System.Drawing.Size(664, 237);
+            this.scintilla.Size = new System.Drawing.Size(664, 262);
             this.scintilla.TabIndex = 2;
             this.scintilla.ViewWhitespace = ScintillaNET.WhitespaceMode.VisibleAlways;
             this.scintilla.UpdateUI += new System.EventHandler<ScintillaNET.UpdateUIEventArgs>(this.terminal_UpdateUI);
@@ -496,5 +508,6 @@
         private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cmShowEOL;
         private System.Windows.Forms.ToolStripMenuItem cmShowWhitespace;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

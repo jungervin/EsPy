@@ -59,5 +59,8 @@
     <Setting Name="PyServerPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">5005</Value>
     </Setting>
+    <Setting Name="EspFlashMode" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

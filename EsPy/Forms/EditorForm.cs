@@ -1,8 +1,8 @@
 ﻿using EsPy.Components;
 
 using EsPy.Dialogs;
-using EsPy.Python;
-using EsPy.Python.Jedi;
+//using EsPy.Python;
+//using EsPy.Python.Jedi;
 
 using EsPy.Units;
 using EsPy.Utility;
@@ -51,17 +51,41 @@ namespace EsPy.Forms
             this.Port = main_form.Port;
         }
 
-        public Lexer Lexer
-        {
-            get { return this.scintilla.Lexer; }
-            set
-            {
-                this.scintilla.Lexer = value;
-            }
-        }
+        //public Lexer Lexer
+        //{
+        //    get {
+
+        //        try
+        //        {
+        //            return this.scintilla.Lexer;
+        //        }
+        //        catch(Exception e)
+        //        {
+        //            Helpers.WarningBox("LEXER => " + e.Message);
+        //        }
+
+        //        return Lexer.Python;
+                
+        //    }
+        //    set
+        //    {
+        //        this.scintilla.Lexer = value;
+        //    }
+        //}
 
         private bool IsRunnable
-        { get { return this.Port != null && this.Port.IsOpen && !this.Port.Busy && this.Lexer == Lexer.Python; } }
+        {
+            get
+            {
+                return this.Port != null &&
+                    this.Port.IsOpen &&
+                    !this.Port.Busy &&
+                    this.FileName != null &&
+                    Path.GetExtension(this.FileName) == ".py";
+                    //this.FileName.EndsWith == Lexer.Python;
+
+            }
+        }
 
         private PySerial FPort = null;
         public PySerial Port
@@ -387,8 +411,7 @@ namespace EsPy.Forms
               this.btnSave.Enabled = this.scintilla.Modified;
 
             this.mnSelectAll.Enabled =
-                this.cmSelectAll.Enabled =
-                this.btnPylint.Enabled = this.scintilla.TextLength > 0;
+                this.cmSelectAll.Enabled = this.scintilla.TextLength > 0;
 
             this.mnFind.Enabled =
                 this.cmFind.Enabled =
@@ -843,25 +866,6 @@ namespace EsPy.Forms
         ////    }
 
         ////}
-
-        private void btnPylint_Click(object sender, EventArgs e)
-        {
-            Globals.MainForm.btnSaveAll_Click(this, null);
-            if (Globals.ErrorListForm != null)
-            {
-                int exitcode = 0;
-                string res = Utility.Py.Run("pylint", "" + this.FileName, out exitcode);
-                if (exitcode > 0)
-                {
-                    Globals.ErrorListForm.MkList(res, this.FileName);
-                    Globals.ErrorListForm.Show(Globals.MainForm.dockPanel1);
-                }
-                else
-                {
-                    Helpers.ErrorBox(exitcode, res);
-                }
-            }
-        }
 
 
         //public void UIStateChanged(object sender, UIChangedEventArgs e)

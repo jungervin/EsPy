@@ -1,5 +1,4 @@
-﻿using EsPy.Python;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +13,9 @@ using System.Windows.Forms;
 
 namespace EsPy.Forms
 {
-    public partial class Splash : Form
+    public partial class About : Form
     {
-        public Splash()
+        public About()
         {
             InitializeComponent();
         }

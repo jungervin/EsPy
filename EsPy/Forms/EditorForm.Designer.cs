@@ -84,7 +84,6 @@
             this.btnCut = new System.Windows.Forms.ToolStripButton();
             this.btnCopy = new System.Windows.Forms.ToolStripButton();
             this.btnPaste = new System.Windows.Forms.ToolStripButton();
-            this.btnPylint = new System.Windows.Forms.ToolStripButton();
             this.btnRun = new System.Windows.Forms.ToolStripButton();
             this.btnUpload = new System.Windows.Forms.ToolStripButton();
             this.scintilla = new EsPy.Components.ExScintilla();
@@ -124,7 +123,7 @@
             this.mnSave.MergeAction = System.Windows.Forms.MergeAction.Replace;
             this.mnSave.MergeIndex = 3;
             this.mnSave.Name = "mnSave";
-            this.mnSave.Size = new System.Drawing.Size(121, 22);
+            this.mnSave.Size = new System.Drawing.Size(152, 22);
             this.mnSave.Text = "Save";
             this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
@@ -133,7 +132,7 @@
             this.mnSaveAs.MergeAction = System.Windows.Forms.MergeAction.Replace;
             this.mnSaveAs.MergeIndex = 4;
             this.mnSaveAs.Name = "mnSaveAs";
-            this.mnSaveAs.Size = new System.Drawing.Size(121, 22);
+            this.mnSaveAs.Size = new System.Drawing.Size(152, 22);
             this.mnSaveAs.Text = "Save as...";
             this.mnSaveAs.Click += new System.EventHandler(this.mnSaveAs_Click);
             // 
@@ -567,7 +566,6 @@
             this.btnCopy,
             this.btnPaste,
             this.toolStripSeparator3,
-            this.btnPylint,
             this.btnRun,
             this.btnUpload});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -660,17 +658,6 @@
             this.btnPaste.Size = new System.Drawing.Size(36, 36);
             this.btnPaste.Text = "Paste";
             this.btnPaste.Click += new System.EventHandler(this.mnPaste_Click);
-            // 
-            // btnPylint
-            // 
-            this.btnPylint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPylint.Enabled = false;
-            this.btnPylint.Image = global::EsPy.Properties.Resources.syntax;
-            this.btnPylint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPylint.Name = "btnPylint";
-            this.btnPylint.Size = new System.Drawing.Size(36, 36);
-            this.btnPylint.Text = "Pylint";
-            this.btnPylint.Click += new System.EventHandler(this.btnPylint_Click);
             // 
             // btnRun
             // 
@@ -801,6 +788,5 @@
         private System.Windows.Forms.ToolStripMenuItem cmShowWhitespace;
         private System.Windows.Forms.ToolStripMenuItem btnHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripButton btnPylint;
     }
 }

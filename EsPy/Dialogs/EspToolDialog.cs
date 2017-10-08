@@ -34,6 +34,8 @@ namespace EsPy.Dialogs
             {
                 this.cbPort.Items.AddRange(ports);
             }
+
+            this.FlashMode.SelectedIndex = Properties.Settings.Default.EspFlashMode;
         }
 
         public string PortName
@@ -236,11 +238,15 @@ namespace EsPy.Dialogs
         {
             if (this.CheckPaths())
             {
-                if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure? Did you erase the device?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    string args = String.Format("\"{0}\" -p {1} -b {2} write_flash --verify --flash_size=detect 0 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
-
-                    args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm dio -ff 20m -fs detect 0x0000 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+                    //string args = String.Format("\"{0}\" -p {1} -b {2} write_flash --verify --flash_size=detect 0 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
+                    string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -ff 20m -fs detect 0x0000 \"{4}\"",
+                        this.tbEsptool.Text,
+                        this.PortName,
+                        this.BaudRate,
+                        this.FlashMode.Text,
+                        this.tbFirmware.Text);
 
                     this.textBox4.Text = this.Run(this.tbPython.Text, args);
                 }
@@ -289,6 +295,7 @@ namespace EsPy.Dialogs
                 Properties.Settings.Default.EspToolPy = this.tbEsptool.Text;
                 Properties.Settings.Default.FrimwareBin = this.tbFirmware.Text;
                 Properties.Settings.Default.EspToolBaud = this.BaudRate;
+                Properties.Settings.Default.EspFlashMode = this.FlashMode.SelectedIndex;
                 Properties.Settings.Default.Save();
                 this.DialogResult = DialogResult.OK;
             }
@@ -324,5 +331,8 @@ namespace EsPy.Dialogs
         private void EspToolDialog_Load(object sender, EventArgs e)
         {
         }
+
+      
+
     }
 }
