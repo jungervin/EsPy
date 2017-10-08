@@ -207,9 +207,6 @@
     <Content Include="Helps\images\esp8266-wemos-d1-mini-pinout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Release\EsPy.1.0.0.4.7z" />
-    <None Include="Release\EsPy.1.0.0.5.7z" />
-    <None Include="Release\EsPy.1.0.0.6.7z" />
     <None Include="Release\EsPy.1.0.0.7.7z" />
     <None Include="Resources\error16.png" />
     <None Include="Resources\info.png" />
