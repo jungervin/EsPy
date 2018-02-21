@@ -18,7 +18,7 @@ https://github.com/jungervin/EsPy/tree/master/EsPy/Release
 
 ### Installation:
 
-Only unzip the downloaded file.
+Only unzip the downloaded file and run EsPy.exe
 
 To use all features ([esptool](https://github.com/espressif/esptool)),  [Python](https://www.python.org) installation is recomended
 
