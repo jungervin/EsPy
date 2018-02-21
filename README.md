@@ -1,5 +1,9 @@
 # MicroPython IDE for ESP8266
 
+## v1.0.0.9
+### Downloads
+https://github.com/jungervin/EsPy/tree/master/EsPy/Release
+
 ### Minimum Requirements:
 
 - MS Windows 7
@@ -14,7 +18,7 @@
 
 ### Installation:
 
-Only unzip the downloaded file.
+Only unzip the downloaded file and run EsPy.exe
 
 To use all features ([esptool](https://github.com/espressif/esptool)),  [Python](https://www.python.org) installation is recomended
 
@@ -49,9 +53,6 @@ To use all features ([esptool](https://github.com/espressif/esptool)),  [Python]
 **Good to know:**
 - Filemanager is enabled when device is connected and not busy
 - Esptool enabled when the port is closed
-
-### Downloads
-https://github.com/jungervin/EsPy/tree/master/EsPy/Release
 
 ### Images:
 ![alt text](https://raw.githubusercontent.com/jungervin/EsPy/master/EsPy/Helps/images/espy.png "Main screen")
