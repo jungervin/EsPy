@@ -43,7 +43,8 @@ namespace EsPy.Forms
             this.DockAreas = DockAreas.Document;
             this.EOLVisible = Properties.Settings.Default.EolVisible;
             this.WhitespaceVisible = Properties.Settings.Default.WhitespaceVisible;
-            this.scintilla.CompletionEnabled = true;
+            
+            
         }
 
         public EditorForm(MainForm main_form) : this()
@@ -82,8 +83,6 @@ namespace EsPy.Forms
                     !this.Port.Busy &&
                     this.FileName != null &&
                     Path.GetExtension(this.FileName) == ".py";
-                    //this.FileName.EndsWith == Lexer.Python;
-
             }
         }
 
@@ -399,11 +398,12 @@ namespace EsPy.Forms
 
         public void UpdateUI()
         {
-
+            this.mnUpload.Enabled =
             this.btnUpload.Enabled = this.Port != null
                 && this.Port.IsOpen && !this.Port.Busy;
 
-            this.btnRun.Enabled = this.IsRunnable;
+            this.mnRun.Enabled =
+                this.btnRun.Enabled = this.IsRunnable;
 
             this.scintilla.Margins[0].Width = this.scintilla.TextWidth(Style.LineNumber, " " + (this.scintilla.Lines.Count + 1).ToString());
 
@@ -613,6 +613,16 @@ namespace EsPy.Forms
             Globals.Terminal.Locked = true;
             this.Port.Sync(true);
             this.Port.Clean();
+
+            //UploadConfirmation dd = new UploadConfirmation();
+            //dd.Port = this.Port;
+            //dd.ShowDialog();
+
+            //this.Port.Clean();
+            //this.Port.Sync(false);
+            //Globals.Terminal.Locked = false;
+
+            //return;
 
             ProgressDialog d = new ProgressDialog();
             d.Port = this.Port;

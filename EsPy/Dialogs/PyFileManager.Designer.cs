@@ -56,6 +56,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lUsage = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,46 +104,51 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadToolStripMenuItem,
             this.uploadToolStripMenuItem,
+            this.renameToolStripMenuItem,
             this.toolStripMenuItem1,
             this.makeDirToolStripMenuItem,
             this.toolStripMenuItem2,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 148);
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.downloadToolStripMenuItem.Text = "Download...";
+            this.downloadToolStripMenuItem.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // uploadToolStripMenuItem
             // 
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
-            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uploadToolStripMenuItem.Text = "Upload...";
+            this.uploadToolStripMenuItem.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(134, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // makeDirToolStripMenuItem
             // 
             this.makeDirToolStripMenuItem.Name = "makeDirToolStripMenuItem";
-            this.makeDirToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.makeDirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.makeDirToolStripMenuItem.Text = "Make Dir...";
+            this.makeDirToolStripMenuItem.Click += new System.EventHandler(this.bntMkDir_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(134, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "Delete...";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // imageList1
             // 
@@ -285,6 +291,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "label4";
             // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renameToolStripMenuItem.Text = "Rename...";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.btnRename_Click);
+            // 
             // PyFileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +360,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lUsage;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
     }
 }

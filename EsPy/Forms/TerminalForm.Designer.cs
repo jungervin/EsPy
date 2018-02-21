@@ -38,6 +38,7 @@
             this.mnShowWhitespace = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.osToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmSoftReset = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmShowEOL = new System.Windows.Forms.ToolStripMenuItem();
             this.cmShowWhitespace = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.scintilla = new EsPy.Components.Terminal();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -101,7 +101,7 @@
             this.mnUndo.MergeIndex = 0;
             this.mnUndo.Name = "mnUndo";
             this.mnUndo.ShortcutKeyDisplayString = "Ctrl+Z";
-            this.mnUndo.Size = new System.Drawing.Size(144, 22);
+            this.mnUndo.Size = new System.Drawing.Size(152, 22);
             this.mnUndo.Text = "Undo";
             // 
             // mnRedo
@@ -111,7 +111,7 @@
             this.mnRedo.MergeIndex = 1;
             this.mnRedo.Name = "mnRedo";
             this.mnRedo.ShortcutKeyDisplayString = "Ctrl+Y";
-            this.mnRedo.Size = new System.Drawing.Size(144, 22);
+            this.mnRedo.Size = new System.Drawing.Size(152, 22);
             this.mnRedo.Text = "Redo";
             // 
             // toolStripMenuItem2
@@ -119,7 +119,7 @@
             this.toolStripMenuItem2.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.toolStripMenuItem2.MergeIndex = 2;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(141, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // mnCut
             // 
@@ -128,7 +128,7 @@
             this.mnCut.MergeIndex = 3;
             this.mnCut.Name = "mnCut";
             this.mnCut.ShortcutKeyDisplayString = "Ctrl+X";
-            this.mnCut.Size = new System.Drawing.Size(144, 22);
+            this.mnCut.Size = new System.Drawing.Size(152, 22);
             this.mnCut.Text = "Cut";
             // 
             // mnCopy
@@ -138,7 +138,7 @@
             this.mnCopy.MergeIndex = 4;
             this.mnCopy.Name = "mnCopy";
             this.mnCopy.ShortcutKeyDisplayString = "";
-            this.mnCopy.Size = new System.Drawing.Size(144, 22);
+            this.mnCopy.Size = new System.Drawing.Size(152, 22);
             this.mnCopy.Text = "Copy";
             // 
             // mnPaste
@@ -149,7 +149,7 @@
             this.mnPaste.MergeIndex = 5;
             this.mnPaste.Name = "mnPaste";
             this.mnPaste.ShortcutKeyDisplayString = "Ctrl+V";
-            this.mnPaste.Size = new System.Drawing.Size(144, 22);
+            this.mnPaste.Size = new System.Drawing.Size(152, 22);
             this.mnPaste.Text = "Paste";
             // 
             // mnDelete
@@ -158,7 +158,7 @@
             this.mnDelete.MergeIndex = 6;
             this.mnDelete.Name = "mnDelete";
             this.mnDelete.ShortcutKeyDisplayString = "Del";
-            this.mnDelete.Size = new System.Drawing.Size(144, 22);
+            this.mnDelete.Size = new System.Drawing.Size(152, 22);
             this.mnDelete.Text = "Delete";
             // 
             // mnClean
@@ -167,7 +167,7 @@
             this.mnClean.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mnClean.MergeIndex = 7;
             this.mnClean.Name = "mnClean";
-            this.mnClean.Size = new System.Drawing.Size(144, 22);
+            this.mnClean.Size = new System.Drawing.Size(152, 22);
             this.mnClean.Text = "Clean";
             this.mnClean.Click += new System.EventHandler(this.mnClean_Click);
             // 
@@ -176,7 +176,7 @@
             this.toolStripMenuItem3.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.toolStripMenuItem3.MergeIndex = 8;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(141, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
             // 
             // mnSelectAll
             // 
@@ -184,7 +184,7 @@
             this.mnSelectAll.MergeIndex = 9;
             this.mnSelectAll.Name = "mnSelectAll";
             this.mnSelectAll.ShortcutKeyDisplayString = "";
-            this.mnSelectAll.Size = new System.Drawing.Size(144, 22);
+            this.mnSelectAll.Size = new System.Drawing.Size(152, 22);
             this.mnSelectAll.Text = "Select All";
             // 
             // toolStripMenuItem7
@@ -192,7 +192,7 @@
             this.toolStripMenuItem7.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.toolStripMenuItem7.MergeIndex = 10;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(141, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(149, 6);
             // 
             // mnView
             // 
@@ -241,6 +241,16 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Visible = false;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::EsPy.Properties.Resources.editclear;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.mnClean_Click);
             // 
             // osToolStripMenuItem
             // 
@@ -410,35 +420,24 @@
             this.cmShowWhitespace.Text = "Show Whitespace";
             this.cmShowWhitespace.Click += new System.EventHandler(this.mnShowWhitespace_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::EsPy.Properties.Resources.editclear;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.mnClean_Click);
-            // 
             // scintilla
             // 
             this.scintilla.AutoCAutoHide = false;
             this.scintilla.AutoCChooseSingle = true;
             this.scintilla.AutomaticFold = ((ScintillaNET.AutomaticFold)(((ScintillaNET.AutomaticFold.Show | ScintillaNET.AutomaticFold.Click) 
             | ScintillaNET.AutomaticFold.Change)));
-            this.scintilla.CompletionEnabled = false;
             this.scintilla.ContextMenuStrip = this.contextMenuStrip1;
             this.scintilla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintilla.EolMode = ScintillaNET.Eol.Cr;
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookForward;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Python;
-            this.scintilla.Location = new System.Drawing.Point(0, 0);
+            this.scintilla.Location = new System.Drawing.Point(0, 24);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
             this.scintilla.Port = null;
             this.scintilla.ReadOnly = true;
-            this.scintilla.Size = new System.Drawing.Size(664, 262);
+            this.scintilla.Size = new System.Drawing.Size(664, 238);
             this.scintilla.TabIndex = 2;
             this.scintilla.ViewWhitespace = ScintillaNET.WhitespaceMode.VisibleAlways;
             this.scintilla.UpdateUI += new System.EventHandler<ScintillaNET.UpdateUIEventArgs>(this.terminal_UpdateUI);

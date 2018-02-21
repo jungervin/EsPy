@@ -241,7 +241,14 @@ namespace EsPy.Dialogs
                 if (MessageBox.Show("Are you sure? Did you erase the device?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     //string args = String.Format("\"{0}\" -p {1} -b {2} write_flash --verify --flash_size=detect 0 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
-                    string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -ff 20m -fs detect 0x0000 \"{4}\"",
+                    //string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -ff 20m -fs detect 0x0000 \"{4}\"",
+                    //    this.tbEsptool.Text,
+                    //    this.PortName,
+                    //    this.BaudRate,
+                    //    this.FlashMode.Text,
+                    //    this.tbFirmware.Text);
+
+                    string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -fs detect 0x0000 \"{4}\"",
                         this.tbEsptool.Text,
                         this.PortName,
                         this.BaudRate,

@@ -37,13 +37,13 @@ namespace EsPy.Components
         public ExScintilla() : base()
         {
             this.InitializeComponent();
-            this.CompletionEnabled = false;
+            //this.CompletionEnabled = false;
             //this.Completions = new List<Completion>(500);
             //this.MouseDwellTime = 500;
         }
 
-        public bool CompletionEnabled
-        { get; set; }
+        //public bool CompletionEnabled
+        //{ get; set; }
 
         private void InitializeComponent()
         {
@@ -435,8 +435,10 @@ namespace EsPy.Components
             this.Styles[Style.Default].Font = "Consolas";
             this.Styles[Style.Default].Size = 10;
             this.StyleClearAll(); 
+
             this.IndentWidth = 4;
-            this.IndentationGuides = IndentView.LookForward;
+            this.TabWidth = 4;
+            this.IndentationGuides = IndentView.LookBoth;
 
 
             this.SetProperty("tab.timmy.whinge.level", "1");
@@ -512,6 +514,19 @@ namespace EsPy.Components
 
         private void ExScintilla_CharAdded(object sender, CharAddedEventArgs e)
         {
+
+            //// Find the word start
+            //int currentPos = this.CurrentPosition;
+            //int wordStartPos = this.WordStartPosition(currentPos, true);
+
+            //// Display the autocompletion list
+            //int lenEntered = currentPos - wordStartPos;
+            //if (lenEntered > 0)
+            //{
+            //    if (!this.AutoCActive)
+            //        this.AutoCShow(lenEntered, "abstract as base break case catch checked continue default delegate do else event explicit extern false finally fixed for foreach goto if implicit in interface internal is lock namespace new null object operator out override params private protected public readonly ref return sealed sizeof stackalloc switch this throw true try typeof unchecked unsafe using virtual while");
+            //}
+
             //var currentPos = this.CurrentPosition;
             //var wordStartPos = this.WordStartPosition(currentPos, true);
 

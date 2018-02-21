@@ -251,8 +251,15 @@ namespace EsPy
             }
             else
             {
-                deserializeDockContent = new DeserializeDockContent(GetContentFromPersistString);
-                dockPanel1.LoadFromXml(configFile, this.deserializeDockContent);
+                try
+                {
+                    deserializeDockContent = new DeserializeDockContent(GetContentFromPersistString);
+                    dockPanel1.LoadFromXml(configFile, this.deserializeDockContent);
+                }
+                catch (Exception ex)
+                {
+                    Helpers.ErrorBox(ex.Message);                    
+                }
             }
 
             this.CurretPortName = Properties.Settings.Default.PortName;
@@ -262,7 +269,7 @@ namespace EsPy
                 this.TerminalForm = new TerminalForm();
                 this.TerminalForm.Show(this.dockPanel1);
             }
-
+            //
             //if (!this.ComportIsExists)
             //{
             //    this.btnConnect.Enabled = false;
@@ -381,6 +388,9 @@ namespace EsPy
 
         private void mnTerminal_Click(object sender, EventArgs e)
         {
+            if (this.TerminalForm == null)
+                this.TerminalForm = new TerminalForm();
+
             this.TerminalForm.Show(this.dockPanel1);
             this.UpdateUI();
         }
@@ -397,6 +407,8 @@ namespace EsPy
                     return this.TerminalForm;
                 this.TerminalForm = new TerminalForm();
                 this.TerminalForm.IsHidden = false;
+                if(this.TerminalForm.DockState == DockState.Document)
+                    this.TerminalForm.DockState = DockState.DockRight;
                 return this.TerminalForm;
             }
             //else if (persistString == typeof(ErrorListForm).ToString())
@@ -453,7 +465,8 @@ namespace EsPy
             {
                 IDocument doc = this.dockPanel1.ActiveDocument as IDocument;
                 doc.CanPaste = Clipboard.ContainsText();
-                doc.UpdateUI();
+                this.FilePath.Text = doc.FileName;
+                //doc.UpdateUI();
             }
             else
             {
@@ -814,7 +827,7 @@ namespace EsPy
         {
             foreach (DockContent dc in this.dockPanel1.Documents)
             {
-                if (dc is IDockDragSource)
+                if (dc is IDocument)
                 {
                     IDocument d = dc as IDocument;
                     if (d.Modified)
@@ -833,9 +846,7 @@ namespace EsPy
                     mi.Click -= Port_Click;
             }
             mnPorts.DropDownItems.Clear();
-
             mnPorts.DropDownItems.Clear();
-
             string[] ports = System.IO.Ports.SerialPort.GetPortNames();
             if (ports != null && ports.Length > 0)
             {
@@ -849,7 +860,6 @@ namespace EsPy
                     {
                         mi.Checked = true;
                     }
-
                     this.mnPorts.DropDownItems.Add(mi);
                 }
             }
@@ -860,7 +870,6 @@ namespace EsPy
                 mi.Enabled = false;
                 this.mnPorts.DropDownItems.Add(mi);
             }
-
             //this.mnEspTool.Enabled = this.Port == null && this.ComportIsExists;
         }
 
@@ -1016,6 +1025,14 @@ namespace EsPy
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             mnOpenFileFolder.Enabled = this.dockPanel1.ActiveDocument != null && this.dockPanel1.ActiveDocument is IDocument;
+        }
+
+        private void btnTerminalClear_Click(object sender, EventArgs e)
+        {
+            if (this.TerminalForm != null)
+            {
+                this.TerminalForm.scintilla.Clean();
+            }
         }
     }
 }

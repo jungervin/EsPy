@@ -22,11 +22,12 @@ namespace EsPy.Forms
         {
             InitializeComponent();
             this.HideOnClose = true;
-            this.DockAreas = DockAreas.Document 
-                | DockAreas.DockBottom 
-                | DockAreas.DockLeft
-                | DockAreas.DockRight
-                | DockAreas.DockTop;
+            this.DockAreas =
+                DockAreas.Document |
+                DockAreas.DockBottom | 
+                DockAreas.DockLeft |
+                DockAreas.DockRight |
+                DockAreas.DockTop;
             this.scintilla.ReadOnly = true;
             //this.scintilla.Preprocess += new Components.Terminal.PreprocessEvent(TerminalPreprocess);
             
@@ -131,7 +132,13 @@ namespace EsPy.Forms
         }
 
         public ToolStrip ToolStrip
-        { get { return this.toolStrip1; } }
+        {
+            get
+            {
+                //return this.toolStrip1;
+                return null;
+            }
+        }
 
         public ToolStrip MenuStrip
         { get { return this.menuStrip1; } }

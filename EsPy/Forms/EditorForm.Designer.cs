@@ -55,6 +55,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnShowEol = new System.Windows.Forms.ToolStripMenuItem();
             this.mnShowWhitespace = new System.Windows.Forms.ToolStripMenuItem();
+            this.deviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnRun = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnUpload = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.cmRedo = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +101,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuItem,
             this.mnEdit,
-            this.mnView});
+            this.mnView,
+            this.deviceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(636, 24);
@@ -123,7 +128,8 @@
             this.mnSave.MergeAction = System.Windows.Forms.MergeAction.Replace;
             this.mnSave.MergeIndex = 3;
             this.mnSave.Name = "mnSave";
-            this.mnSave.Size = new System.Drawing.Size(152, 22);
+            this.mnSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mnSave.Size = new System.Drawing.Size(138, 22);
             this.mnSave.Text = "Save";
             this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
@@ -132,7 +138,7 @@
             this.mnSaveAs.MergeAction = System.Windows.Forms.MergeAction.Replace;
             this.mnSaveAs.MergeIndex = 4;
             this.mnSaveAs.Name = "mnSaveAs";
-            this.mnSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.mnSaveAs.Size = new System.Drawing.Size(138, 22);
             this.mnSaveAs.Text = "Save as...";
             this.mnSaveAs.Click += new System.EventHandler(this.mnSaveAs_Click);
             // 
@@ -346,6 +352,46 @@
             this.mnShowWhitespace.Size = new System.Drawing.Size(167, 22);
             this.mnShowWhitespace.Text = "Show Whitespace";
             this.mnShowWhitespace.Click += new System.EventHandler(this.mnShowWhitespace_Click);
+            // 
+            // deviceToolStripMenuItem
+            // 
+            this.deviceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem10,
+            this.mnRun,
+            this.mnUpload});
+            this.deviceToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.deviceToolStripMenuItem.Name = "deviceToolStripMenuItem";
+            this.deviceToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.deviceToolStripMenuItem.Text = "Device";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.toolStripMenuItem10.MergeIndex = 2;
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(151, 6);
+            // 
+            // mnRun
+            // 
+            this.mnRun.Image = global::EsPy.Properties.Resources.play1;
+            this.mnRun.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnRun.MergeIndex = 3;
+            this.mnRun.Name = "mnRun";
+            this.mnRun.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.mnRun.Size = new System.Drawing.Size(154, 22);
+            this.mnRun.Text = "Run";
+            this.mnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // mnUpload
+            // 
+            this.mnUpload.Image = global::EsPy.Properties.Resources.upload1;
+            this.mnUpload.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnUpload.MergeIndex = 4;
+            this.mnUpload.Name = "mnUpload";
+            this.mnUpload.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.mnUpload.Size = new System.Drawing.Size(154, 22);
+            this.mnUpload.Text = "Upload";
+            this.mnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // contextMenuStrip1
             // 
@@ -690,7 +736,6 @@
             this.scintilla.AutomaticFold = ((ScintillaNET.AutomaticFold)(((ScintillaNET.AutomaticFold.Show | ScintillaNET.AutomaticFold.Click) 
             | ScintillaNET.AutomaticFold.Change)));
             this.scintilla.CaretLineBackColorAlpha = 128;
-            this.scintilla.CompletionEnabled = false;
             this.scintilla.ContextMenuStrip = this.contextMenuStrip1;
             this.scintilla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintilla.EdgeColumn = 80;
@@ -698,10 +743,10 @@
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookBoth;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Html;
-            this.scintilla.Location = new System.Drawing.Point(0, 24);
+            this.scintilla.Location = new System.Drawing.Point(0, 39);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
-            this.scintilla.Size = new System.Drawing.Size(636, 238);
+            this.scintilla.Size = new System.Drawing.Size(636, 223);
             this.scintilla.TabIndex = 2;
             this.scintilla.SavePointLeft += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointLeft);
             this.scintilla.SavePointReached += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointReached);
@@ -788,5 +833,9 @@
         private System.Windows.Forms.ToolStripMenuItem cmShowWhitespace;
         private System.Windows.Forms.ToolStripMenuItem btnHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem deviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnRun;
+        private System.Windows.Forms.ToolStripMenuItem mnUpload;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
     }
 }

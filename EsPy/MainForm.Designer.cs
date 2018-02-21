@@ -54,7 +54,6 @@
             this.mnDevice = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPorts = new System.Windows.Forms.ToolStripMenuItem();
             this.mnFileManager = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnEspTool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnTools = new System.Windows.Forms.ToolStripMenuItem();
             this.mnWebREPL = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,18 +88,21 @@
             this.btnReset = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFileManager = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnTerminalClear = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.FilePath = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnOpenFileFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.vS2015BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
             this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
             this.vS2015LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015LightTheme();
             this.visualStudioToolStripExtender1 = new WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender(this.components);
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.FilePath = new System.Windows.Forms.ToolStripStatusLabel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnOpenFileFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -149,13 +151,14 @@
             this.mnNewOther});
             this.mnNew.Image = ((System.Drawing.Image)(resources.GetObject("mnNew.Image")));
             this.mnNew.Name = "mnNew";
-            this.mnNew.Size = new System.Drawing.Size(121, 22);
+            this.mnNew.Size = new System.Drawing.Size(185, 22);
             this.mnNew.Text = "New";
             // 
             // mnNewPython
             // 
             this.mnNewPython.Name = "mnNewPython";
-            this.mnNewPython.Size = new System.Drawing.Size(134, 22);
+            this.mnNewPython.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.mnNewPython.Size = new System.Drawing.Size(164, 22);
             this.mnNewPython.Tag = ".py";
             this.mnNewPython.Text = "Python...";
             this.mnNewPython.Click += new System.EventHandler(this.mnNewPython_Click);
@@ -163,7 +166,7 @@
             // mnNewHtml
             // 
             this.mnNewHtml.Name = "mnNewHtml";
-            this.mnNewHtml.Size = new System.Drawing.Size(134, 22);
+            this.mnNewHtml.Size = new System.Drawing.Size(164, 22);
             this.mnNewHtml.Tag = ".html";
             this.mnNewHtml.Text = "HTML...";
             this.mnNewHtml.Click += new System.EventHandler(this.mnNewHtml_Click);
@@ -171,7 +174,7 @@
             // mnNewCss
             // 
             this.mnNewCss.Name = "mnNewCss";
-            this.mnNewCss.Size = new System.Drawing.Size(134, 22);
+            this.mnNewCss.Size = new System.Drawing.Size(164, 22);
             this.mnNewCss.Tag = ".css";
             this.mnNewCss.Text = "Css...";
             this.mnNewCss.Click += new System.EventHandler(this.mnNewCss_Click);
@@ -179,7 +182,7 @@
             // mnNewJs
             // 
             this.mnNewJs.Name = "mnNewJs";
-            this.mnNewJs.Size = new System.Drawing.Size(134, 22);
+            this.mnNewJs.Size = new System.Drawing.Size(164, 22);
             this.mnNewJs.Tag = ".js";
             this.mnNewJs.Text = "Javascript...";
             this.mnNewJs.Click += new System.EventHandler(this.mnNewJs_Click);
@@ -187,7 +190,7 @@
             // mnNewJson
             // 
             this.mnNewJson.Name = "mnNewJson";
-            this.mnNewJson.Size = new System.Drawing.Size(134, 22);
+            this.mnNewJson.Size = new System.Drawing.Size(164, 22);
             this.mnNewJson.Tag = ".json";
             this.mnNewJson.Text = "JSON...";
             this.mnNewJson.Click += new System.EventHandler(this.mnNewJson_Click);
@@ -195,14 +198,14 @@
             // mnNewTxt
             // 
             this.mnNewTxt.Name = "mnNewTxt";
-            this.mnNewTxt.Size = new System.Drawing.Size(134, 22);
+            this.mnNewTxt.Size = new System.Drawing.Size(164, 22);
             this.mnNewTxt.Text = "Text...";
             this.mnNewTxt.Click += new System.EventHandler(this.mnNewTxt_Click);
             // 
             // mnNewOther
             // 
             this.mnNewOther.Name = "mnNewOther";
-            this.mnNewOther.Size = new System.Drawing.Size(134, 22);
+            this.mnNewOther.Size = new System.Drawing.Size(164, 22);
             this.mnNewOther.Text = "Other...";
             this.mnNewOther.Click += new System.EventHandler(this.mnNewOther_Click);
             // 
@@ -210,20 +213,22 @@
             // 
             this.mnOpen.Image = ((System.Drawing.Image)(resources.GetObject("mnOpen.Image")));
             this.mnOpen.Name = "mnOpen";
-            this.mnOpen.Size = new System.Drawing.Size(121, 22);
+            this.mnOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mnOpen.Size = new System.Drawing.Size(185, 22);
             this.mnOpen.Text = "Open...";
             this.mnOpen.Click += new System.EventHandler(this.mnOpen_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(118, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
             // 
             // mnSave
             // 
             this.mnSave.Enabled = false;
             this.mnSave.Name = "mnSave";
-            this.mnSave.Size = new System.Drawing.Size(121, 22);
+            this.mnSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mnSave.Size = new System.Drawing.Size(185, 22);
             this.mnSave.Text = "Save";
             this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
@@ -231,7 +236,7 @@
             // 
             this.mnSaveAs.Enabled = false;
             this.mnSaveAs.Name = "mnSaveAs";
-            this.mnSaveAs.Size = new System.Drawing.Size(121, 22);
+            this.mnSaveAs.Size = new System.Drawing.Size(185, 22);
             this.mnSaveAs.Text = "Save as...";
             this.mnSaveAs.Click += new System.EventHandler(this.mnSaveAs_Click);
             // 
@@ -239,19 +244,21 @@
             // 
             this.mnSaveAll.Image = global::EsPy.Properties.Resources.saveall;
             this.mnSaveAll.Name = "mnSaveAll";
-            this.mnSaveAll.Size = new System.Drawing.Size(121, 22);
+            this.mnSaveAll.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.mnSaveAll.Size = new System.Drawing.Size(185, 22);
             this.mnSaveAll.Text = "Save all";
             this.mnSaveAll.Click += new System.EventHandler(this.mnSaveAll_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(118, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(182, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -268,7 +275,7 @@
             this.settingsToolStripMenuItem.Enabled = false;
             this.settingsToolStripMenuItem.MergeIndex = 20;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -284,7 +291,7 @@
             // mnTerminal
             // 
             this.mnTerminal.Name = "mnTerminal";
-            this.mnTerminal.Size = new System.Drawing.Size(121, 22);
+            this.mnTerminal.Size = new System.Drawing.Size(152, 22);
             this.mnTerminal.Text = "Terminal";
             this.mnTerminal.Click += new System.EventHandler(this.mnTerminal_Click);
             // 
@@ -293,7 +300,7 @@
             this.mnDevice.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnPorts,
             this.mnFileManager,
-            this.toolStripSeparator3,
+            this.toolStripMenuItem4,
             this.mnEspTool});
             this.mnDevice.Name = "mnDevice";
             this.mnDevice.Size = new System.Drawing.Size(54, 20);
@@ -304,7 +311,7 @@
             // 
             this.mnPorts.Image = global::EsPy.Properties.Resources.port;
             this.mnPorts.Name = "mnPorts";
-            this.mnPorts.Size = new System.Drawing.Size(148, 22);
+            this.mnPorts.Size = new System.Drawing.Size(152, 22);
             this.mnPorts.Text = "Ports";
             // 
             // mnFileManager
@@ -312,19 +319,14 @@
             this.mnFileManager.Enabled = false;
             this.mnFileManager.Image = global::EsPy.Properties.Resources.filemanager;
             this.mnFileManager.Name = "mnFileManager";
-            this.mnFileManager.Size = new System.Drawing.Size(148, 22);
+            this.mnFileManager.Size = new System.Drawing.Size(152, 22);
             this.mnFileManager.Text = "Filemanager...";
             this.mnFileManager.Click += new System.EventHandler(this.mnFileManager_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(145, 6);
             // 
             // mnEspTool
             // 
             this.mnEspTool.Name = "mnEspTool";
-            this.mnEspTool.Size = new System.Drawing.Size(148, 22);
+            this.mnEspTool.Size = new System.Drawing.Size(152, 22);
             this.mnEspTool.Text = "EspTool...";
             this.mnEspTool.Click += new System.EventHandler(this.btnFlashing_Click);
             // 
@@ -339,7 +341,7 @@
             // mnWebREPL
             // 
             this.mnWebREPL.Name = "mnWebREPL";
-            this.mnWebREPL.Size = new System.Drawing.Size(124, 22);
+            this.mnWebREPL.Size = new System.Drawing.Size(152, 22);
             this.mnWebREPL.Text = "WebREPL";
             this.mnWebREPL.Click += new System.EventHandler(this.mnWebREPL_Click);
             // 
@@ -401,7 +403,9 @@
             this.toolStripSeparator1,
             this.btnReset,
             this.toolStripSeparator7,
-            this.btnFileManager});
+            this.btnFileManager,
+            this.toolStripSeparator8,
+            this.btnTerminalClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(522, 31);
@@ -629,6 +633,21 @@
             this.btnFileManager.Text = "File Manager";
             this.btnFileManager.Click += new System.EventHandler(this.mnFileManager_Click);
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 31);
+            // 
+            // btnTerminalClear
+            // 
+            this.btnTerminalClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnTerminalClear.Image = global::EsPy.Properties.Resources.editclear;
+            this.btnTerminalClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTerminalClear.Name = "btnTerminalClear";
+            this.btnTerminalClear.Size = new System.Drawing.Size(28, 28);
+            this.btnTerminalClear.Text = "toolStripButton1";
+            this.btnTerminalClear.Click += new System.EventHandler(this.btnTerminalClear_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -657,6 +676,18 @@
             this.toolStripStatusLabel2.Text = "---";
             this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(28, 17);
+            this.toolStripStatusLabel1.Text = "File:";
+            // 
+            // FilePath
+            // 
+            this.FilePath.Name = "FilePath";
+            this.FilePath.Size = new System.Drawing.Size(22, 17);
+            this.FilePath.Text = "---";
+            // 
             // dockPanel1
             // 
             this.dockPanel1.ContextMenuStrip = this.contextMenuStrip1;
@@ -672,36 +703,29 @@
             this.dockPanel1.ActiveDocumentChanged += new System.EventHandler(this.dockPanel1_ActiveDocumentChanged);
             this.dockPanel1.ActiveContentChanged += new System.EventHandler(this.dockPanel1_ActiveContentChanged);
             // 
-            // visualStudioToolStripExtender1
-            // 
-            this.visualStudioToolStripExtender1.DefaultRenderer = null;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(28, 17);
-            this.toolStripStatusLabel1.Text = "File:";
-            // 
-            // FilePath
-            // 
-            this.FilePath.Name = "FilePath";
-            this.FilePath.Size = new System.Drawing.Size(22, 17);
-            this.FilePath.Text = "---";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnOpenFileFolder});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 26);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // mnOpenFileFolder
             // 
             this.mnOpenFileFolder.Name = "mnOpenFileFolder";
-            this.mnOpenFileFolder.Size = new System.Drawing.Size(152, 22);
+            this.mnOpenFileFolder.Size = new System.Drawing.Size(148, 22);
             this.mnOpenFileFolder.Text = "Open Folder...";
             this.mnOpenFileFolder.Click += new System.EventHandler(this.mnOpenFileFolder_Click);
+            // 
+            // visualStudioToolStripExtender1
+            // 
+            this.visualStudioToolStripExtender1.DefaultRenderer = null;
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
             // 
             // MainForm
             // 
@@ -788,7 +812,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnNewOther;
         private System.Windows.Forms.ToolStripMenuItem mnFileManager;
         private System.Windows.Forms.ToolStripMenuItem mnWebREPL;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem mnEspTool;
         private System.Windows.Forms.ToolStripMenuItem btnNewPython;
         private System.Windows.Forms.ToolStripMenuItem btnNewHtml;
@@ -805,6 +828,9 @@
         private System.Windows.Forms.ToolStripStatusLabel FilePath;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnOpenFileFolder;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton btnTerminalClear;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
     }
 }
 
