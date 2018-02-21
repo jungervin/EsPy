@@ -1,5 +1,7 @@
 # MicroPython IDE for ESP8266
 
+## v1.0.0.9
+
 ### Minimum Requirements:
 
 - MS Windows 7
