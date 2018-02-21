@@ -304,6 +304,7 @@
     <None Include="Resources\sdcard.png" />
     <None Include="Resources\USB.png" />
     <None Include="Resources\filemanager.png" />
+    <None Include="Resources\pause.png" />
     <Content Include="Tools\webrepl\.gitignore">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

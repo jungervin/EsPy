@@ -649,6 +649,14 @@ namespace EsPy.Forms
             }
         }
 
+        private void mnInterrupt_Click(object sender, EventArgs e)
+        {
+            if (this.Port != null)
+            {
+                this.Port.Interrupt();
+            }
+        }
+
 
         //private Line CurrentLine
         //{ get { return this.scintilla.Lines[this.scintilla.CurrentLine]; } }
@@ -704,7 +712,7 @@ namespace EsPy.Forms
 
         //public void ShowCompletions(List<BaseDefinition> list, Words words)
         //{
-            
+
         //    //if (this.CompletionForm != null)
         //    //{
         //    //    this.CompletionForm.Dispose();
@@ -752,7 +760,7 @@ namespace EsPy.Forms
 
         //            switch (key)
         //            {
-                        
+
         //                case Keys.Up:
         //                    if (this.CompletionForm.Visible)
         //                    {
@@ -792,7 +800,7 @@ namespace EsPy.Forms
         //    return base.ProcessCmdKey(ref msg, key);
         //}
 
-               
+
 
         //private void Completions(string pattern)
         //{

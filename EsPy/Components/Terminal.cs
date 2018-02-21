@@ -383,7 +383,7 @@ namespace EsPy.Components
                             this.Port.LeaveRawMode();
                             return true;
 
-                        case Keys.Control | Keys.C:
+                        case Keys.Control | Keys.I:
                             //this.Port.Write(new byte[] { 3 });
                             this.Port.Interrupt();
                             return true;
