@@ -1,6 +1,6 @@
 # MicroPython IDE for ESP8266
 
-## v1.0.0.9
+## v1.0.0.10
 ### Downloads
 https://github.com/jungervin/EsPy/tree/master/EsPy/Release
 
@@ -60,3 +60,4 @@ To use all features ([esptool](https://github.com/espressif/esptool)),  [Python]
 ![alt text](https://raw.githubusercontent.com/jungervin/EsPy/master/EsPy/Helps/images/filemanager.png "File Manager")
 
 ![alt text](https://raw.githubusercontent.com/jungervin/EsPy/master/EsPy/Helps/images/esptool.png "esptool")
+
