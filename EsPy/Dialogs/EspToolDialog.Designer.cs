@@ -44,21 +44,24 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbParams = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.FlashMode = new System.Windows.Forms.ComboBox();
+            this.cbDevice = new System.Windows.Forms.ComboBox();
             this.cbPort = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.cbBaudrate = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnMac = new System.Windows.Forms.Button();
             this.btnFlashID = new System.Windows.Forms.Button();
             this.btnChipID = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,14 +79,14 @@
             this.tbPython.Location = new System.Drawing.Point(75, 46);
             this.tbPython.Name = "tbPython";
             this.tbPython.Size = new System.Drawing.Size(502, 20);
-            this.tbPython.TabIndex = 1;
+            this.tbPython.TabIndex = 2;
             // 
             // btnPython
             // 
             this.btnPython.Location = new System.Drawing.Point(583, 44);
             this.btnPython.Name = "btnPython";
             this.btnPython.Size = new System.Drawing.Size(23, 23);
-            this.btnPython.TabIndex = 2;
+            this.btnPython.TabIndex = 3;
             this.btnPython.Text = "...";
             this.btnPython.UseVisualStyleBackColor = true;
             this.btnPython.Click += new System.EventHandler(this.btnPython_Click);
@@ -102,14 +105,14 @@
             this.tbEsptool.Location = new System.Drawing.Point(75, 72);
             this.tbEsptool.Name = "tbEsptool";
             this.tbEsptool.Size = new System.Drawing.Size(502, 20);
-            this.tbEsptool.TabIndex = 3;
+            this.tbEsptool.TabIndex = 4;
             // 
             // btnEsptool
             // 
             this.btnEsptool.Location = new System.Drawing.Point(583, 70);
             this.btnEsptool.Name = "btnEsptool";
             this.btnEsptool.Size = new System.Drawing.Size(23, 23);
-            this.btnEsptool.TabIndex = 4;
+            this.btnEsptool.TabIndex = 5;
             this.btnEsptool.Text = "...";
             this.btnEsptool.UseVisualStyleBackColor = true;
             this.btnEsptool.Click += new System.EventHandler(this.btnEsptool_Click);
@@ -128,14 +131,14 @@
             this.tbFirmware.Location = new System.Drawing.Point(75, 118);
             this.tbFirmware.Name = "tbFirmware";
             this.tbFirmware.Size = new System.Drawing.Size(502, 20);
-            this.tbFirmware.TabIndex = 5;
+            this.tbFirmware.TabIndex = 6;
             // 
             // btnFirmware
             // 
             this.btnFirmware.Location = new System.Drawing.Point(583, 116);
             this.btnFirmware.Name = "btnFirmware";
             this.btnFirmware.Size = new System.Drawing.Size(23, 23);
-            this.btnFirmware.TabIndex = 6;
+            this.btnFirmware.TabIndex = 7;
             this.btnFirmware.Text = "...";
             this.btnFirmware.UseVisualStyleBackColor = true;
             this.btnFirmware.Click += new System.EventHandler(this.btnFirmware_Click);
@@ -143,20 +146,20 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox4.Location = new System.Drawing.Point(12, 244);
+            this.textBox4.Location = new System.Drawing.Point(12, 273);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox4.Size = new System.Drawing.Size(612, 162);
+            this.textBox4.Size = new System.Drawing.Size(612, 206);
             this.textBox4.TabIndex = 0;
             // 
             // btnErase
             // 
             this.btnErase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnErase.Location = new System.Drawing.Point(358, 413);
+            this.btnErase.Location = new System.Drawing.Point(364, 486);
             this.btnErase.Name = "btnErase";
             this.btnErase.Size = new System.Drawing.Size(135, 23);
-            this.btnErase.TabIndex = 4;
+            this.btnErase.TabIndex = 3;
             this.btnErase.Text = "1. Erase...";
             this.btnErase.UseVisualStyleBackColor = true;
             this.btnErase.Click += new System.EventHandler(this.Erase_Click);
@@ -164,10 +167,10 @@
             // btnWrite
             // 
             this.btnWrite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWrite.Location = new System.Drawing.Point(494, 412);
+            this.btnWrite.Location = new System.Drawing.Point(500, 485);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Size = new System.Drawing.Size(124, 23);
-            this.btnWrite.TabIndex = 5;
+            this.btnWrite.TabIndex = 4;
             this.btnWrite.Text = "2. Write...";
             this.btnWrite.UseVisualStyleBackColor = true;
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
@@ -175,10 +178,10 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnClose.Location = new System.Drawing.Point(474, 454);
+            this.btnClose.Location = new System.Drawing.Point(480, 527);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 7;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "OK";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -187,10 +190,10 @@
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(555, 454);
+            this.button1.Location = new System.Drawing.Point(561, 527);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -213,11 +216,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.tbParams);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.FlashMode);
+            this.groupBox1.Controls.Add(this.cbDevice);
             this.groupBox1.Controls.Add(this.cbPort);
             this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.cbBaudrate);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbPython);
@@ -229,13 +234,32 @@
             this.groupBox1.Controls.Add(this.tbFirmware);
             this.groupBox1.Controls.Add(this.btnPython);
             this.groupBox1.Controls.Add(this.btnEsptool);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.btnFirmware);
             this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(612, 179);
+            this.groupBox1.Size = new System.Drawing.Size(612, 208);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
+            // 
+            // label11
+            // 
+            this.label11.Image = global::EsPy.Properties.Resources.info;
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Location = new System.Drawing.Point(465, 144);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(119, 23);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "       Edit your own list!";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbParams
+            // 
+            this.tbParams.Location = new System.Drawing.Point(75, 181);
+            this.tbParams.Name = "tbParams";
+            this.tbParams.Size = new System.Drawing.Size(531, 20);
+            this.tbParams.TabIndex = 10;
             // 
             // label9
             // 
@@ -258,21 +282,16 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Default location: YourPython\\Lib\\site-packages\\esptool.py";
             // 
-            // FlashMode
+            // cbDevice
             // 
-            this.FlashMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FlashMode.FormattingEnabled = true;
-            this.FlashMode.Items.AddRange(new object[] {
-            "keep",
-            "qio",
-            "qout",
-            "dio",
-            "dout"});
-            this.FlashMode.Location = new System.Drawing.Point(75, 144);
-            this.FlashMode.Name = "FlashMode";
-            this.FlashMode.Size = new System.Drawing.Size(104, 21);
-            this.FlashMode.TabIndex = 0;
-            this.FlashMode.Validating += new System.ComponentModel.CancelEventHandler(this.cbBaudrate_Validating);
+            this.cbDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDevice.FormattingEnabled = true;
+            this.cbDevice.Location = new System.Drawing.Point(75, 146);
+            this.cbDevice.Name = "cbDevice";
+            this.cbDevice.Size = new System.Drawing.Size(278, 21);
+            this.cbDevice.TabIndex = 8;
+            this.cbDevice.SelectedIndexChanged += new System.EventHandler(this.cbDevice_SelectedIndexChanged);
+            this.cbDevice.Validating += new System.ComponentModel.CancelEventHandler(this.cbBaudrate_Validating);
             // 
             // cbPort
             // 
@@ -287,11 +306,20 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 147);
+            this.label10.Location = new System.Drawing.Point(9, 184);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 6;
-            this.label10.Text = "Flash Mode";
+            this.label10.Text = "Parameters";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 149);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Device";
             // 
             // cbBaudrate
             // 
@@ -310,7 +338,7 @@
             this.cbBaudrate.Location = new System.Drawing.Point(249, 19);
             this.cbBaudrate.Name = "cbBaudrate";
             this.cbBaudrate.Size = new System.Drawing.Size(104, 21);
-            this.cbBaudrate.TabIndex = 0;
+            this.cbBaudrate.TabIndex = 1;
             this.cbBaudrate.Validating += new System.ComponentModel.CancelEventHandler(this.cbBaudrate_Validating);
             // 
             // label7
@@ -331,13 +359,23 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Baud Rate";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(583, 144);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(23, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "...";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // btnMac
             // 
             this.btnMac.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMac.Location = new System.Drawing.Point(18, 412);
+            this.btnMac.Location = new System.Drawing.Point(24, 485);
             this.btnMac.Name = "btnMac";
             this.btnMac.Size = new System.Drawing.Size(74, 23);
-            this.btnMac.TabIndex = 1;
+            this.btnMac.TabIndex = 0;
             this.btnMac.Text = "MAC";
             this.btnMac.UseVisualStyleBackColor = true;
             this.btnMac.Click += new System.EventHandler(this.btnMac_Click);
@@ -345,10 +383,10 @@
             // btnFlashID
             // 
             this.btnFlashID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnFlashID.Location = new System.Drawing.Point(98, 413);
+            this.btnFlashID.Location = new System.Drawing.Point(104, 486);
             this.btnFlashID.Name = "btnFlashID";
             this.btnFlashID.Size = new System.Drawing.Size(74, 23);
-            this.btnFlashID.TabIndex = 2;
+            this.btnFlashID.TabIndex = 1;
             this.btnFlashID.Text = "Flash ID";
             this.btnFlashID.UseVisualStyleBackColor = true;
             this.btnFlashID.Click += new System.EventHandler(this.btnFlashID_Click);
@@ -356,10 +394,10 @@
             // btnChipID
             // 
             this.btnChipID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnChipID.Location = new System.Drawing.Point(178, 413);
+            this.btnChipID.Location = new System.Drawing.Point(184, 486);
             this.btnChipID.Name = "btnChipID";
             this.btnChipID.Size = new System.Drawing.Size(74, 23);
-            this.btnChipID.TabIndex = 3;
+            this.btnChipID.TabIndex = 2;
             this.btnChipID.Text = "Chip ID";
             this.btnChipID.UseVisualStyleBackColor = true;
             this.btnChipID.Click += new System.EventHandler(this.btnChipID_Click);
@@ -367,7 +405,7 @@
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(18, 442);
+            this.label5.Location = new System.Drawing.Point(24, 515);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(612, 1);
             this.label5.TabIndex = 15;
@@ -376,7 +414,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(18, 448);
+            this.linkLabel1.Location = new System.Drawing.Point(24, 521);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(180, 13);
             this.linkLabel1.TabIndex = 16;
@@ -387,7 +425,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(18, 467);
+            this.linkLabel2.Location = new System.Drawing.Point(24, 540);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(212, 13);
             this.linkLabel2.TabIndex = 17;
@@ -395,21 +433,11 @@
             this.linkLabel2.Text = "http://micropython.org/download#esp8266";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Maroon;
-            this.label11.Location = new System.Drawing.Point(207, 147);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(230, 13);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "NodeMCU, Wemos D1: dio. Sonoff Relay: dout";
-            // 
             // EspToolDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 486);
+            this.ClientSize = new System.Drawing.Size(636, 562);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label5);
@@ -467,7 +495,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox FlashMode;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbParams;
+        private System.Windows.Forms.ComboBox cbDevice;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
     }

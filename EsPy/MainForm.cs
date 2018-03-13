@@ -255,10 +255,14 @@ namespace EsPy
                 {
                     deserializeDockContent = new DeserializeDockContent(GetContentFromPersistString);
                     dockPanel1.LoadFromXml(configFile, this.deserializeDockContent);
+                    
                 }
                 catch (Exception ex)
                 {
-                    Helpers.ErrorBox(ex.Message);                    
+                    Helpers.ErrorBox(ex.Message + "\r\n\r\n"+ "Plase restart the program!");
+                    this.TerminalForm.Close();
+                    this.Close();
+                    return;
                 }
             }
 
@@ -649,7 +653,7 @@ namespace EsPy
                     this.FPort.PortBusy -= Port_PortBusy;
                     this.FPort.PortFree -= Port_PortFree;
 
-                    foreach (DockContent dc in this.dockPanel1.Documents)
+                    foreach (DockContent dc in this.dockPanel1.Contents)
                     {
                         if (dc is IPort)
                         {
@@ -677,7 +681,7 @@ namespace EsPy
                         //Websocket
                     }
 
-                    foreach (DockContent dc in this.dockPanel1.Documents)
+                    foreach (DockContent dc in this.dockPanel1.Contents)
                     {
                         if (dc is IPort)
                         {

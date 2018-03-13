@@ -276,19 +276,19 @@
             this.toolStripSeparator3,
             this.advancedToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 248);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 270);
             // 
             // cmSoftReset
             // 
             this.cmSoftReset.Enabled = false;
             this.cmSoftReset.Name = "cmSoftReset";
-            this.cmSoftReset.Size = new System.Drawing.Size(144, 22);
+            this.cmSoftReset.Size = new System.Drawing.Size(152, 22);
             this.cmSoftReset.Text = "Soft reset";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // cmUndo
             // 
@@ -298,7 +298,7 @@
             this.cmUndo.MergeIndex = 0;
             this.cmUndo.Name = "cmUndo";
             this.cmUndo.ShortcutKeyDisplayString = "Ctrl+Z";
-            this.cmUndo.Size = new System.Drawing.Size(144, 22);
+            this.cmUndo.Size = new System.Drawing.Size(152, 22);
             this.cmUndo.Text = "Undo";
             this.cmUndo.Click += new System.EventHandler(this.mnUndo_Click);
             // 
@@ -310,7 +310,7 @@
             this.cmRedo.MergeIndex = 1;
             this.cmRedo.Name = "cmRedo";
             this.cmRedo.ShortcutKeyDisplayString = "Ctrl+Y";
-            this.cmRedo.Size = new System.Drawing.Size(144, 22);
+            this.cmRedo.Size = new System.Drawing.Size(152, 22);
             this.cmRedo.Text = "Redo";
             this.cmRedo.Click += new System.EventHandler(this.mnRedo_Click);
             // 
@@ -319,7 +319,7 @@
             this.toolStripSeparator4.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.toolStripSeparator4.MergeIndex = 2;
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // cmCut
             // 
@@ -329,7 +329,7 @@
             this.cmCut.MergeIndex = 3;
             this.cmCut.Name = "cmCut";
             this.cmCut.ShortcutKeyDisplayString = "Ctrl+X";
-            this.cmCut.Size = new System.Drawing.Size(144, 22);
+            this.cmCut.Size = new System.Drawing.Size(152, 22);
             this.cmCut.Text = "Cut";
             this.cmCut.Click += new System.EventHandler(this.mnCut_Click);
             // 
@@ -341,7 +341,7 @@
             this.cmCopy.MergeIndex = 4;
             this.cmCopy.Name = "cmCopy";
             this.cmCopy.ShortcutKeyDisplayString = "";
-            this.cmCopy.Size = new System.Drawing.Size(144, 22);
+            this.cmCopy.Size = new System.Drawing.Size(152, 22);
             this.cmCopy.Text = "Copy";
             this.cmCopy.Click += new System.EventHandler(this.mnCopy_Click);
             // 
@@ -353,7 +353,7 @@
             this.cmPaste.MergeIndex = 5;
             this.cmPaste.Name = "cmPaste";
             this.cmPaste.ShortcutKeyDisplayString = "Ctrl+V";
-            this.cmPaste.Size = new System.Drawing.Size(144, 22);
+            this.cmPaste.Size = new System.Drawing.Size(152, 22);
             this.cmPaste.Text = "Paste";
             this.cmPaste.Click += new System.EventHandler(this.mnPaste_Click);
             // 
@@ -364,7 +364,7 @@
             this.cmDelete.MergeIndex = 6;
             this.cmDelete.Name = "cmDelete";
             this.cmDelete.ShortcutKeyDisplayString = "Del";
-            this.cmDelete.Size = new System.Drawing.Size(144, 22);
+            this.cmDelete.Size = new System.Drawing.Size(152, 22);
             this.cmDelete.Text = "Delete";
             this.cmDelete.Click += new System.EventHandler(this.mnDelete_Click);
             // 
@@ -372,14 +372,14 @@
             // 
             this.cmClean.Image = global::EsPy.Properties.Resources.editclear;
             this.cmClean.Name = "cmClean";
-            this.cmClean.Size = new System.Drawing.Size(144, 22);
+            this.cmClean.Size = new System.Drawing.Size(152, 22);
             this.cmClean.Text = "Clean";
             this.cmClean.Click += new System.EventHandler(this.mnClean_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // cmSelectAll
             // 
@@ -388,14 +388,14 @@
             this.cmSelectAll.MergeIndex = 8;
             this.cmSelectAll.Name = "cmSelectAll";
             this.cmSelectAll.ShortcutKeyDisplayString = "";
-            this.cmSelectAll.Size = new System.Drawing.Size(144, 22);
+            this.cmSelectAll.Size = new System.Drawing.Size(152, 22);
             this.cmSelectAll.Text = "Select All";
             this.cmSelectAll.Click += new System.EventHandler(this.mnSelectAll_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // advancedToolStripMenuItem
             // 
@@ -403,7 +403,7 @@
             this.cmShowEOL,
             this.cmShowWhitespace});
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // cmShowEOL
@@ -432,12 +432,12 @@
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookForward;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Python;
-            this.scintilla.Location = new System.Drawing.Point(0, 39);
+            this.scintilla.Location = new System.Drawing.Point(0, 0);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
             this.scintilla.Port = null;
             this.scintilla.ReadOnly = true;
-            this.scintilla.Size = new System.Drawing.Size(664, 223);
+            this.scintilla.Size = new System.Drawing.Size(664, 262);
             this.scintilla.TabIndex = 2;
             this.scintilla.ViewWhitespace = ScintillaNET.WhitespaceMode.VisibleAlways;
             this.scintilla.UpdateUI += new System.EventHandler<ScintillaNET.UpdateUIEventArgs>(this.terminal_UpdateUI);

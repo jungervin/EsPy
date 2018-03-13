@@ -19,6 +19,11 @@ namespace EsPy
     public class Globals
     {
 
+        public static string DevicesFile
+        {
+            get { return Path.Combine(Application.StartupPath, "conf", "devices.txt"); }
+        }
+
         //public static PyClient PyClient = null;
 
         //public static void PyClientStart()

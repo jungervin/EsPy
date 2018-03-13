@@ -43,16 +43,16 @@ namespace EsPy.Units
 
         public void Dispose()
         {
-            if (this.IsOpen)
-            {
-                try
-                {
-                    this.Sync(false);
-                    this.Close();
-                }
-                catch (Exception)
-                { }
-            }
+            //if (this.IsOpen)
+            //{
+            //    try
+            //    {
+            //        this.Sync(false);
+            //        this.Close();
+            //    }
+            //    catch (Exception)
+            //    { }
+            //}
         }
 
         public string PortName

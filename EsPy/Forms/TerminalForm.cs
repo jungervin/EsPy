@@ -23,7 +23,7 @@ namespace EsPy.Forms
             InitializeComponent();
             this.HideOnClose = true;
             this.DockAreas =
-                DockAreas.Document |
+                //DockAreas.Document |
                 DockAreas.DockBottom | 
                 DockAreas.DockLeft |
                 DockAreas.DockRight |

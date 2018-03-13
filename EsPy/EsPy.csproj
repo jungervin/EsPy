@@ -126,6 +126,12 @@
     <Compile Include="Components\Terminal.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dialogs\DeviceEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DeviceEditorDialog.Designer.cs">
+      <DependentUpon>DeviceEditorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\EspToolDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,8 +214,12 @@
     <Compile Include="Utility\BinaryString.cs" />
     <Compile Include="Utility\FileFormat.cs" />
     <Compile Include="Utility\FileFormats.cs" />
+    <Compile Include="Utility\Device.cs" />
     <Compile Include="Utility\Helpers.cs" />
     <Compile Include="Utility\TextHelper.cs" />
+    <Content Include="Conf\devices.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Helps\images\esp8266-wemos-d1-mini-pinout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -226,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Terminal.resx">
       <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DeviceEditorDialog.resx">
+      <DependentUpon>DeviceEditorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\EspToolDialog.resx">
       <DependentUpon>EspToolDialog.cs</DependentUpon>

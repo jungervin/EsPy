@@ -253,13 +253,13 @@ namespace EsPy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public int EspFlashMode {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int EspToolDeviceIndex {
             get {
-                return ((int)(this["EspFlashMode"]));
+                return ((int)(this["EspToolDeviceIndex"]));
             }
             set {
-                this["EspFlashMode"] = value;
+                this["EspToolDeviceIndex"] = value;
             }
         }
     }

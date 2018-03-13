@@ -35,7 +35,7 @@ namespace EsPy.Dialogs
                 this.cbPort.Items.AddRange(ports);
             }
 
-            this.FlashMode.SelectedIndex = Properties.Settings.Default.EspFlashMode;
+            //this.FlashMode.SelectedIndex = Properties.Settings.Default.EspFlashMode;
         }
 
         public string PortName
@@ -96,7 +96,7 @@ namespace EsPy.Dialogs
         }
 
 
-       
+
 
         private string Run(string cmd, string args)
         {
@@ -113,9 +113,11 @@ namespace EsPy.Dialogs
                 return "";
             }
 
-            this.textBox4.Text = "Please wait...\r\n";
-            
+
+            string res = ""; // "Please wait...\r\n";
+
             this.Enabled = false;
+            Globals.MainForm.Cursor = Cursors.WaitCursor;
             Application.DoEvents();
 
             try
@@ -134,7 +136,7 @@ namespace EsPy.Dialogs
                 proc.StartInfo = inf;
 
                 proc.Start();
-                string res = "";
+
                 res = proc.StandardOutput.ReadToEnd();
                 res += proc.StandardError.ReadToEnd();
                 proc.WaitForExit();
@@ -148,9 +150,9 @@ namespace EsPy.Dialogs
 
                 for (int i = 1; i < res.Length;)
                 {
-                    if (res[i]  < 10)
-                    {                   
-                        res = res.Remove(i - 1 , 2);
+                    if (res[i] < 10)
+                    {
+                        res = res.Remove(i - 1, 2);
                         i--;
                     }
                     else i++;
@@ -165,35 +167,36 @@ namespace EsPy.Dialogs
             finally
             {
                 this.Enabled = true;
+                Globals.MainForm.Cursor = Cursors.Default;
             }
         }
 
 
-       //public delegate void DataReceivedEventHandler(string data);
-       // private void UpdateUI(string data)
-       // {
-       //     if (this.InvokeRequired)
-       //     {
-       //         this.Invoke(new DataReceivedEventHandler(this.UpdateUI), new object[] { data });
-       //     }
-       //     else
-       //     {
-       //         if (data != null)
-       //         {
-       //             this.textBox4.Text = data;
-       //             this.textBox4.Invalidate();
-       //         }
-       //     }
-       // }
-       // private void Proc_ErrorDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
-       // {
-       //     this.UpdateUI(e.Data);
-       // }
+        //public delegate void DataReceivedEventHandler(string data);
+        // private void UpdateUI(string data)
+        // {
+        //     if (this.InvokeRequired)
+        //     {
+        //         this.Invoke(new DataReceivedEventHandler(this.UpdateUI), new object[] { data });
+        //     }
+        //     else
+        //     {
+        //         if (data != null)
+        //         {
+        //             this.textBox4.Text = data;
+        //             this.textBox4.Invalidate();
+        //         }
+        //     }
+        // }
+        // private void Proc_ErrorDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        // {
+        //     this.UpdateUI(e.Data);
+        // }
 
-       // private void Proc_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
-       // {
-       //     this.UpdateUI(e.Data);
-       // }
+        // private void Proc_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        // {
+        //     this.UpdateUI(e.Data);
+        // }
 
         private void btnMac_Click(object sender, EventArgs e)
         {
@@ -229,7 +232,9 @@ namespace EsPy.Dialogs
                 if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     string args = String.Format("\"{0}\" -p {1} -b {2} erase_flash", this.tbEsptool.Text, this.PortName, this.BaudRate);
-                    this.textBox4.Text = this.Run(this.tbPython.Text, args);
+                    this.textBox4.Text = "Please wait...\r\n\r\n";
+                    Application.DoEvents();
+                    this.textBox4.Text += this.Run(this.tbPython.Text, args);
                 }
             }
         }
@@ -240,6 +245,7 @@ namespace EsPy.Dialogs
             {
                 if (MessageBox.Show("Are you sure? Did you erase the device?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
+
                     //string args = String.Format("\"{0}\" -p {1} -b {2} write_flash --verify --flash_size=detect 0 \"{3}\"", this.tbEsptool.Text, this.PortName, this.BaudRate, this.tbFirmware.Text);
                     //string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -ff 20m -fs detect 0x0000 \"{4}\"",
                     //    this.tbEsptool.Text,
@@ -248,14 +254,27 @@ namespace EsPy.Dialogs
                     //    this.FlashMode.Text,
                     //    this.tbFirmware.Text);
 
-                    string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -fs detect 0x0000 \"{4}\"",
-                        this.tbEsptool.Text,
-                        this.PortName,
-                        this.BaudRate,
-                        this.FlashMode.Text,
-                        this.tbFirmware.Text);
+                    //string args = String.Format("\"{0}\" -p {1} -b {2} write_flash -fm {3} -fs detect 0x0000 \"{4}\"",
+                    //    this.tbEsptool.Text,
+                    //    this.PortName,
+                    //    this.BaudRate,
+                    //    this.FlashMode.Text,
+                    //    this.tbFirmware.Text);
 
-                    this.textBox4.Text = this.Run(this.tbPython.Text, args);
+                    if (this.tbParams.Text.Length > 0)
+                    {
+                        string args = this.tbParams.Text.Replace("$PORT", this.PortName);
+                        args = args.Replace("$BAUDRATE", this.BaudRate.ToString());
+                        args = args.Replace("$FIRMWARE", this.tbFirmware.Text);
+                        args = " \"" + this.tbEsptool.Text + "\" " + args;
+
+                        this.textBox4.Text = args + "\r\n\r\n";
+                        this.textBox4.Text += "Please wait...\r\n\r\n";
+
+                        Application.DoEvents();
+                        this.textBox4.Text += this.Run(this.tbPython.Text, args);
+                    }
+
                 }
             }
         }
@@ -296,13 +315,13 @@ namespace EsPy.Dialogs
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (this.CheckPaths(false))
+            //if (this.CheckPaths(false))
             {
                 Properties.Settings.Default.PythonExe = this.tbPython.Text;
                 Properties.Settings.Default.EspToolPy = this.tbEsptool.Text;
                 Properties.Settings.Default.FrimwareBin = this.tbFirmware.Text;
                 Properties.Settings.Default.EspToolBaud = this.BaudRate;
-                Properties.Settings.Default.EspFlashMode = this.FlashMode.SelectedIndex;
+                Properties.Settings.Default.EspToolDeviceIndex = this.cbDevice.SelectedIndex;
                 Properties.Settings.Default.Save();
                 this.DialogResult = DialogResult.OK;
             }
@@ -337,9 +356,48 @@ namespace EsPy.Dialogs
 
         private void EspToolDialog_Load(object sender, EventArgs e)
         {
+            this.cbDevice.Items.Clear();
+            this.tbParams.Text = "";
+
+            Devices d = Devices.LoadFromFile(Globals.DevicesFile);
+            if (d != null)
+            {
+                this.cbDevice.Items.AddRange(d.ToArray());
+                if (this.cbDevice.Items.Count > Properties.Settings.Default.EspToolDeviceIndex)
+                {
+                    this.cbDevice.SelectedIndex = Properties.Settings.Default.EspToolDeviceIndex;
+                }
+            }
         }
 
-      
+        private void cbDevice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cbDevice.SelectedItem is Device)
+            {
+                this.tbParams.Text = (this.cbDevice.SelectedItem as Device).Cmd;
+            }
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DeviceEditorDialog d = new DeviceEditorDialog();
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+                int i = this.cbDevice.SelectedIndex;
+                this.cbDevice.Items.Clear();
+                this.tbParams.Text = "";
+
+                Devices de = Devices.LoadFromFile(Globals.DevicesFile);
+                if (de != null)
+                {
+                    this.cbDevice.Items.AddRange(de.ToArray());
+                    if (this.cbDevice.Items.Count > i)
+                    {
+                        this.cbDevice.SelectedIndex = i;
+                    }
+                }
+            }
+            d.Dispose();
+        }
     }
 }

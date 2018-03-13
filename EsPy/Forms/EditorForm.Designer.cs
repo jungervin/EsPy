@@ -32,9 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnSave = new System.Windows.Forms.ToolStripMenuItem();
             this.mnSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.mnEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnUndo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnRedo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.mnDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnSelectAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +57,16 @@
             this.mnShowWhitespace = new System.Windows.Forms.ToolStripMenuItem();
             this.deviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnRun = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnInterrupt = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnUpload = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmUndo = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmRedo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmSelectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.cmFind = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,32 +81,18 @@
             this.cmShowWhitespace = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmUndo = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmRedo = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmPaste = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnUndo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnRedo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnPaste = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnRun = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnInterrupt = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnUpload = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnUndo = new System.Windows.Forms.ToolStripButton();
             this.btnRedo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCut = new System.Windows.Forms.ToolStripButton();
             this.btnCopy = new System.Windows.Forms.ToolStripButton();
             this.btnPaste = new System.Windows.Forms.ToolStripButton();
             this.btnRun = new System.Windows.Forms.ToolStripButton();
-            this.btnUpload = new System.Windows.Forms.ToolStripButton();
             this.btnPause = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnUpload = new System.Windows.Forms.ToolStripButton();
             this.scintilla = new EsPy.Components.ExScintilla();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -123,6 +123,18 @@
             this.FileMenuItem.Name = "FileMenuItem";
             this.FileMenuItem.Size = new System.Drawing.Size(37, 20);
             this.FileMenuItem.Text = "&File";
+            // 
+            // mnSave
+            // 
+            this.mnSave.Enabled = false;
+            this.mnSave.Image = ((System.Drawing.Image)(resources.GetObject("mnSave.Image")));
+            this.mnSave.MergeAction = System.Windows.Forms.MergeAction.Replace;
+            this.mnSave.MergeIndex = 3;
+            this.mnSave.Name = "mnSave";
+            this.mnSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mnSave.Size = new System.Drawing.Size(138, 22);
+            this.mnSave.Text = "Save";
+            this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
             // mnSaveAs
             // 
@@ -158,12 +170,67 @@
             this.mnEdit.Size = new System.Drawing.Size(39, 20);
             this.mnEdit.Text = "&Edit";
             // 
+            // mnUndo
+            // 
+            this.mnUndo.Image = ((System.Drawing.Image)(resources.GetObject("mnUndo.Image")));
+            this.mnUndo.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnUndo.MergeIndex = 0;
+            this.mnUndo.Name = "mnUndo";
+            this.mnUndo.ShortcutKeyDisplayString = "Ctrl+Z";
+            this.mnUndo.Size = new System.Drawing.Size(183, 22);
+            this.mnUndo.Text = "Undo";
+            this.mnUndo.Click += new System.EventHandler(this.mnUndo_Click);
+            // 
+            // mnRedo
+            // 
+            this.mnRedo.Image = ((System.Drawing.Image)(resources.GetObject("mnRedo.Image")));
+            this.mnRedo.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnRedo.MergeIndex = 1;
+            this.mnRedo.Name = "mnRedo";
+            this.mnRedo.ShortcutKeyDisplayString = "Ctrl+Y";
+            this.mnRedo.Size = new System.Drawing.Size(183, 22);
+            this.mnRedo.Text = "Redo";
+            this.mnRedo.Click += new System.EventHandler(this.mnRedo_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.toolStripMenuItem2.MergeIndex = 2;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 6);
+            // 
+            // mnCut
+            // 
+            this.mnCut.Image = ((System.Drawing.Image)(resources.GetObject("mnCut.Image")));
+            this.mnCut.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnCut.MergeIndex = 3;
+            this.mnCut.Name = "mnCut";
+            this.mnCut.ShortcutKeyDisplayString = "Ctrl+X";
+            this.mnCut.Size = new System.Drawing.Size(183, 22);
+            this.mnCut.Text = "Cut";
+            this.mnCut.Click += new System.EventHandler(this.mnCut_Click);
+            // 
+            // mnCopy
+            // 
+            this.mnCopy.Image = ((System.Drawing.Image)(resources.GetObject("mnCopy.Image")));
+            this.mnCopy.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnCopy.MergeIndex = 4;
+            this.mnCopy.Name = "mnCopy";
+            this.mnCopy.ShortcutKeyDisplayString = "Ctrl+C";
+            this.mnCopy.Size = new System.Drawing.Size(183, 22);
+            this.mnCopy.Text = "Copy";
+            this.mnCopy.Click += new System.EventHandler(this.mnCopy_Click);
+            // 
+            // mnPaste
+            // 
+            this.mnPaste.Image = ((System.Drawing.Image)(resources.GetObject("mnPaste.Image")));
+            this.mnPaste.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnPaste.MergeIndex = 5;
+            this.mnPaste.Name = "mnPaste";
+            this.mnPaste.ShortcutKeyDisplayString = "Ctrl+V";
+            this.mnPaste.Size = new System.Drawing.Size(183, 22);
+            this.mnPaste.Text = "Paste";
+            this.mnPaste.Click += new System.EventHandler(this.mnPaste_Click);
             // 
             // mnDelete
             // 
@@ -308,6 +375,39 @@
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             this.toolStripMenuItem10.Size = new System.Drawing.Size(244, 6);
             // 
+            // mnRun
+            // 
+            this.mnRun.Image = global::EsPy.Properties.Resources.play1;
+            this.mnRun.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnRun.MergeIndex = 3;
+            this.mnRun.Name = "mnRun";
+            this.mnRun.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.mnRun.Size = new System.Drawing.Size(247, 22);
+            this.mnRun.Text = "Run";
+            this.mnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // mnInterrupt
+            // 
+            this.mnInterrupt.Image = global::EsPy.Properties.Resources.pause;
+            this.mnInterrupt.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnInterrupt.MergeIndex = 4;
+            this.mnInterrupt.Name = "mnInterrupt";
+            this.mnInterrupt.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.mnInterrupt.Size = new System.Drawing.Size(247, 22);
+            this.mnInterrupt.Text = "Interrupt current program";
+            this.mnInterrupt.Click += new System.EventHandler(this.mnInterrupt_Click);
+            // 
+            // mnUpload
+            // 
+            this.mnUpload.Image = global::EsPy.Properties.Resources.upload1;
+            this.mnUpload.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.mnUpload.MergeIndex = 5;
+            this.mnUpload.Name = "mnUpload";
+            this.mnUpload.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.mnUpload.Size = new System.Drawing.Size(247, 22);
+            this.mnUpload.Text = "Upload";
+            this.mnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -332,12 +432,72 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(184, 336);
             // 
+            // cmUndo
+            // 
+            this.cmUndo.Enabled = false;
+            this.cmUndo.Image = ((System.Drawing.Image)(resources.GetObject("cmUndo.Image")));
+            this.cmUndo.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.cmUndo.MergeIndex = 0;
+            this.cmUndo.Name = "cmUndo";
+            this.cmUndo.ShortcutKeyDisplayString = "Ctrl+Z";
+            this.cmUndo.Size = new System.Drawing.Size(183, 22);
+            this.cmUndo.Text = "Undo";
+            this.cmUndo.Click += new System.EventHandler(this.mnUndo_Click);
+            // 
+            // cmRedo
+            // 
+            this.cmRedo.Enabled = false;
+            this.cmRedo.Image = ((System.Drawing.Image)(resources.GetObject("cmRedo.Image")));
+            this.cmRedo.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.cmRedo.MergeIndex = 1;
+            this.cmRedo.Name = "cmRedo";
+            this.cmRedo.ShortcutKeyDisplayString = "Ctrl+Y";
+            this.cmRedo.Size = new System.Drawing.Size(183, 22);
+            this.cmRedo.Text = "Redo";
+            this.cmRedo.Click += new System.EventHandler(this.mnRedo_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.toolStripSeparator4.MergeIndex = 2;
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(180, 6);
+            // 
+            // cmCut
+            // 
+            this.cmCut.Enabled = false;
+            this.cmCut.Image = ((System.Drawing.Image)(resources.GetObject("cmCut.Image")));
+            this.cmCut.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.cmCut.MergeIndex = 3;
+            this.cmCut.Name = "cmCut";
+            this.cmCut.ShortcutKeyDisplayString = "Ctrl+X";
+            this.cmCut.Size = new System.Drawing.Size(183, 22);
+            this.cmCut.Text = "Cut";
+            this.cmCut.Click += new System.EventHandler(this.mnCut_Click);
+            // 
+            // cmCopy
+            // 
+            this.cmCopy.Enabled = false;
+            this.cmCopy.Image = ((System.Drawing.Image)(resources.GetObject("cmCopy.Image")));
+            this.cmCopy.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.cmCopy.MergeIndex = 4;
+            this.cmCopy.Name = "cmCopy";
+            this.cmCopy.ShortcutKeyDisplayString = "Ctrl+C";
+            this.cmCopy.Size = new System.Drawing.Size(183, 22);
+            this.cmCopy.Text = "Copy";
+            this.cmCopy.Click += new System.EventHandler(this.mnCopy_Click);
+            // 
+            // cmPaste
+            // 
+            this.cmPaste.Enabled = false;
+            this.cmPaste.Image = ((System.Drawing.Image)(resources.GetObject("cmPaste.Image")));
+            this.cmPaste.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.cmPaste.MergeIndex = 5;
+            this.cmPaste.Name = "cmPaste";
+            this.cmPaste.ShortcutKeyDisplayString = "Ctrl+V";
+            this.cmPaste.Size = new System.Drawing.Size(183, 22);
+            this.cmPaste.Text = "Paste";
+            this.cmPaste.Click += new System.EventHandler(this.mnPaste_Click);
             // 
             // cmDelete
             // 
@@ -478,178 +638,6 @@
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Visible = false;
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            this.toolStripSeparator1.Visible = false;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
-            this.toolStripSeparator2.Visible = false;
-            // 
-            // cmUndo
-            // 
-            this.cmUndo.Enabled = false;
-            this.cmUndo.Image = ((System.Drawing.Image)(resources.GetObject("cmUndo.Image")));
-            this.cmUndo.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.cmUndo.MergeIndex = 0;
-            this.cmUndo.Name = "cmUndo";
-            this.cmUndo.ShortcutKeyDisplayString = "Ctrl+Z";
-            this.cmUndo.Size = new System.Drawing.Size(183, 22);
-            this.cmUndo.Text = "Undo";
-            this.cmUndo.Click += new System.EventHandler(this.mnUndo_Click);
-            // 
-            // cmRedo
-            // 
-            this.cmRedo.Enabled = false;
-            this.cmRedo.Image = ((System.Drawing.Image)(resources.GetObject("cmRedo.Image")));
-            this.cmRedo.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.cmRedo.MergeIndex = 1;
-            this.cmRedo.Name = "cmRedo";
-            this.cmRedo.ShortcutKeyDisplayString = "Ctrl+Y";
-            this.cmRedo.Size = new System.Drawing.Size(183, 22);
-            this.cmRedo.Text = "Redo";
-            this.cmRedo.Click += new System.EventHandler(this.mnRedo_Click);
-            // 
-            // cmCut
-            // 
-            this.cmCut.Enabled = false;
-            this.cmCut.Image = ((System.Drawing.Image)(resources.GetObject("cmCut.Image")));
-            this.cmCut.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.cmCut.MergeIndex = 3;
-            this.cmCut.Name = "cmCut";
-            this.cmCut.ShortcutKeyDisplayString = "Ctrl+X";
-            this.cmCut.Size = new System.Drawing.Size(183, 22);
-            this.cmCut.Text = "Cut";
-            this.cmCut.Click += new System.EventHandler(this.mnCut_Click);
-            // 
-            // cmCopy
-            // 
-            this.cmCopy.Enabled = false;
-            this.cmCopy.Image = ((System.Drawing.Image)(resources.GetObject("cmCopy.Image")));
-            this.cmCopy.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.cmCopy.MergeIndex = 4;
-            this.cmCopy.Name = "cmCopy";
-            this.cmCopy.ShortcutKeyDisplayString = "Ctrl+C";
-            this.cmCopy.Size = new System.Drawing.Size(183, 22);
-            this.cmCopy.Text = "Copy";
-            this.cmCopy.Click += new System.EventHandler(this.mnCopy_Click);
-            // 
-            // cmPaste
-            // 
-            this.cmPaste.Enabled = false;
-            this.cmPaste.Image = ((System.Drawing.Image)(resources.GetObject("cmPaste.Image")));
-            this.cmPaste.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.cmPaste.MergeIndex = 5;
-            this.cmPaste.Name = "cmPaste";
-            this.cmPaste.ShortcutKeyDisplayString = "Ctrl+V";
-            this.cmPaste.Size = new System.Drawing.Size(183, 22);
-            this.cmPaste.Text = "Paste";
-            this.cmPaste.Click += new System.EventHandler(this.mnPaste_Click);
-            // 
-            // mnSave
-            // 
-            this.mnSave.Enabled = false;
-            this.mnSave.Image = ((System.Drawing.Image)(resources.GetObject("mnSave.Image")));
-            this.mnSave.MergeAction = System.Windows.Forms.MergeAction.Replace;
-            this.mnSave.MergeIndex = 3;
-            this.mnSave.Name = "mnSave";
-            this.mnSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnSave.Size = new System.Drawing.Size(138, 22);
-            this.mnSave.Text = "Save";
-            this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
-            // 
-            // mnUndo
-            // 
-            this.mnUndo.Image = ((System.Drawing.Image)(resources.GetObject("mnUndo.Image")));
-            this.mnUndo.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnUndo.MergeIndex = 0;
-            this.mnUndo.Name = "mnUndo";
-            this.mnUndo.ShortcutKeyDisplayString = "Ctrl+Z";
-            this.mnUndo.Size = new System.Drawing.Size(183, 22);
-            this.mnUndo.Text = "Undo";
-            this.mnUndo.Click += new System.EventHandler(this.mnUndo_Click);
-            // 
-            // mnRedo
-            // 
-            this.mnRedo.Image = ((System.Drawing.Image)(resources.GetObject("mnRedo.Image")));
-            this.mnRedo.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnRedo.MergeIndex = 1;
-            this.mnRedo.Name = "mnRedo";
-            this.mnRedo.ShortcutKeyDisplayString = "Ctrl+Y";
-            this.mnRedo.Size = new System.Drawing.Size(183, 22);
-            this.mnRedo.Text = "Redo";
-            this.mnRedo.Click += new System.EventHandler(this.mnRedo_Click);
-            // 
-            // mnCut
-            // 
-            this.mnCut.Image = ((System.Drawing.Image)(resources.GetObject("mnCut.Image")));
-            this.mnCut.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnCut.MergeIndex = 3;
-            this.mnCut.Name = "mnCut";
-            this.mnCut.ShortcutKeyDisplayString = "Ctrl+X";
-            this.mnCut.Size = new System.Drawing.Size(183, 22);
-            this.mnCut.Text = "Cut";
-            this.mnCut.Click += new System.EventHandler(this.mnCut_Click);
-            // 
-            // mnCopy
-            // 
-            this.mnCopy.Image = ((System.Drawing.Image)(resources.GetObject("mnCopy.Image")));
-            this.mnCopy.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnCopy.MergeIndex = 4;
-            this.mnCopy.Name = "mnCopy";
-            this.mnCopy.ShortcutKeyDisplayString = "Ctrl+C";
-            this.mnCopy.Size = new System.Drawing.Size(183, 22);
-            this.mnCopy.Text = "Copy";
-            this.mnCopy.Click += new System.EventHandler(this.mnCopy_Click);
-            // 
-            // mnPaste
-            // 
-            this.mnPaste.Image = ((System.Drawing.Image)(resources.GetObject("mnPaste.Image")));
-            this.mnPaste.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnPaste.MergeIndex = 5;
-            this.mnPaste.Name = "mnPaste";
-            this.mnPaste.ShortcutKeyDisplayString = "Ctrl+V";
-            this.mnPaste.Size = new System.Drawing.Size(183, 22);
-            this.mnPaste.Text = "Paste";
-            this.mnPaste.Click += new System.EventHandler(this.mnPaste_Click);
-            // 
-            // mnRun
-            // 
-            this.mnRun.Image = global::EsPy.Properties.Resources.play1;
-            this.mnRun.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnRun.MergeIndex = 3;
-            this.mnRun.Name = "mnRun";
-            this.mnRun.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.mnRun.Size = new System.Drawing.Size(247, 22);
-            this.mnRun.Text = "Run";
-            this.mnRun.Click += new System.EventHandler(this.btnRun_Click);
-            // 
-            // mnInterrupt
-            // 
-            this.mnInterrupt.Image = global::EsPy.Properties.Resources.pause;
-            this.mnInterrupt.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnInterrupt.MergeIndex = 4;
-            this.mnInterrupt.Name = "mnInterrupt";
-            this.mnInterrupt.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.mnInterrupt.Size = new System.Drawing.Size(247, 22);
-            this.mnInterrupt.Text = "Interrupt current program";
-            this.mnInterrupt.Click += new System.EventHandler(this.mnInterrupt_Click);
-            // 
-            // mnUpload
-            // 
-            this.mnUpload.Image = global::EsPy.Properties.Resources.upload1;
-            this.mnUpload.MergeAction = System.Windows.Forms.MergeAction.Insert;
-            this.mnUpload.MergeIndex = 5;
-            this.mnUpload.Name = "mnUpload";
-            this.mnUpload.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.mnUpload.Size = new System.Drawing.Size(247, 22);
-            this.mnUpload.Text = "Upload";
-            this.mnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
             // btnSave
             // 
             this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -661,6 +649,12 @@
             this.btnSave.Size = new System.Drawing.Size(36, 36);
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.mnSave_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            this.toolStripSeparator1.Visible = false;
             // 
             // btnUndo
             // 
@@ -685,6 +679,12 @@
             this.btnRedo.Size = new System.Drawing.Size(36, 36);
             this.btnRedo.Text = "Redo";
             this.btnRedo.Click += new System.EventHandler(this.mnRedo_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            this.toolStripSeparator2.Visible = false;
             // 
             // btnCut
             // 
@@ -730,21 +730,9 @@
             this.btnRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(36, 36);
-            this.btnRun.Text = "Run (Ctrl+R)";
-            this.btnRun.ToolTipText = "Run";
+            this.btnRun.Text = "Run ";
+            this.btnRun.ToolTipText = "Run (Ctrl+R)";
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnUpload.Enabled = false;
-            this.btnUpload.Image = global::EsPy.Properties.Resources.upload1;
-            this.btnUpload.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(36, 36);
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.ToolTipText = "Upload to the current directory";
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // btnPause
             // 
@@ -761,6 +749,18 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 39);
             // 
+            // btnUpload
+            // 
+            this.btnUpload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnUpload.Enabled = false;
+            this.btnUpload.Image = global::EsPy.Properties.Resources.upload1;
+            this.btnUpload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(36, 36);
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.ToolTipText = "Upload to the current directory";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // scintilla
             // 
             this.scintilla.AutoCAutoHide = false;
@@ -775,10 +775,10 @@
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookBoth;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Html;
-            this.scintilla.Location = new System.Drawing.Point(0, 24);
+            this.scintilla.Location = new System.Drawing.Point(0, 39);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
-            this.scintilla.Size = new System.Drawing.Size(636, 238);
+            this.scintilla.Size = new System.Drawing.Size(636, 223);
             this.scintilla.TabIndex = 2;
             this.scintilla.SavePointLeft += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointLeft);
             this.scintilla.SavePointReached += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointReached);
