@@ -31,9 +31,9 @@ namespace EsPy.Dialogs
             this.textBox1.Text += "#     Device Name; Parameters\r\n";
             this.textBox1.Text += "# \r\n";
             this.textBox1.Text += "\r\n";
-            this.textBox1.Text += "Wemos Mini D1; -p $PORT - b $BAUDRATE write_flash -fm dio - fs detect 0x0000 \"$FIRMWARE\"\r\n";
-            this.textBox1.Text += "Node MCU; -p $PORT - b $BAUDRATE write_flash -fm dio - fs detect 0x0000 \"$FIRMWARE\"\r\n";
-            this.textBox1.Text += "Sonoff Basic; -p $PORT - b $BAUDRATE write_flash -fm dout - ff 20m - fs detect 0x0000 \"$FIRMWARE\"\r\n";
+            this.textBox1.Text += "Wemos Mini D1; -p $PORT -b $BAUDRATE write_flash -fm dio -fs detect 0x0000 \"$FIRMWARE\"\r\n";
+            this.textBox1.Text += "Node MCU; -p $PORT -b $BAUDRATE write_flash -fm dio -fs detect 0x0000 \"$FIRMWARE\"\r\n";
+            this.textBox1.Text += "Sonoff Basic; -p $PORT -b $BAUDRATE write_flash -fm dout -ff 20m -fs detect 0x0000 \"$FIRMWARE\"\r\n";
         }
 
         private void btnOk_Click(object sender, EventArgs e)

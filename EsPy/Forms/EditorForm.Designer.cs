@@ -775,10 +775,10 @@
             this.scintilla.IndentationGuides = ScintillaNET.IndentView.LookBoth;
             this.scintilla.IndentWidth = 4;
             this.scintilla.Lexer = ScintillaNET.Lexer.Html;
-            this.scintilla.Location = new System.Drawing.Point(0, 39);
+            this.scintilla.Location = new System.Drawing.Point(0, 0);
             this.scintilla.MouseDwellTime = 500;
             this.scintilla.Name = "scintilla";
-            this.scintilla.Size = new System.Drawing.Size(636, 223);
+            this.scintilla.Size = new System.Drawing.Size(636, 262);
             this.scintilla.TabIndex = 2;
             this.scintilla.SavePointLeft += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointLeft);
             this.scintilla.SavePointReached += new System.EventHandler<System.EventArgs>(this.scintilla_SavePointReached);
