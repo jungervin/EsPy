@@ -126,15 +126,15 @@ namespace EsPy.Components
 
         const int LineLength = 180;
         char[] Buffer = new char[LineLength]; // new StringBuilder(" ", LineLength);
-        int Cp = 0;
+        //int Cp = 0;
         char LastChar = (char)0;
         char LastMode = (char)0;
         public bool Locked = false;
 
-        private char C0 = '\0';
-        private char C1 = '\0';
-        private char C2 = '\0';
-        private char C3 = '\0';
+        //private char C0 = '\0';
+        //private char C1 = '\0';
+        //private char C2 = '\0';
+        //private char C3 = '\0';
         private delegate void UpdateTerminalEvent(string data, string message);
         public void UpdateTerminal(string data, string message)
         {
@@ -371,8 +371,6 @@ namespace EsPy.Components
 
                             }
                             return true;
-
-                            break;
 
                         case Keys.Control | Keys.A:
                             this.Port.EnterRawMode();                            
