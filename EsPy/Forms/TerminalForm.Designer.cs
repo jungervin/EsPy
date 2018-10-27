@@ -283,7 +283,7 @@
             this.cmSoftReset.Enabled = false;
             this.cmSoftReset.Name = "cmSoftReset";
             this.cmSoftReset.Size = new System.Drawing.Size(152, 22);
-            this.cmSoftReset.Text = "Soft reset";
+            this.cmSoftReset.Text = "Soft Reset";
             // 
             // toolStripSeparator5
             // 
@@ -373,7 +373,7 @@
             this.cmClean.Image = global::EsPy.Properties.Resources.editclear;
             this.cmClean.Name = "cmClean";
             this.cmClean.Size = new System.Drawing.Size(152, 22);
-            this.cmClean.Text = "Clean";
+            this.cmClean.Text = "Clear Terminal";
             this.cmClean.Click += new System.EventHandler(this.mnClean_Click);
             // 
             // toolStripSeparator1

@@ -142,7 +142,7 @@
             this.mnSaveAs.MergeIndex = 4;
             this.mnSaveAs.Name = "mnSaveAs";
             this.mnSaveAs.Size = new System.Drawing.Size(138, 22);
-            this.mnSaveAs.Text = "Save as...";
+            this.mnSaveAs.Text = "Save As...";
             this.mnSaveAs.Click += new System.EventHandler(this.mnSaveAs_Click);
             // 
             // mnEdit
@@ -394,7 +394,7 @@
             this.mnInterrupt.Name = "mnInterrupt";
             this.mnInterrupt.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.mnInterrupt.Size = new System.Drawing.Size(247, 22);
-            this.mnInterrupt.Text = "Interrupt current program";
+            this.mnInterrupt.Text = "Interrupt";
             this.mnInterrupt.Click += new System.EventHandler(this.mnInterrupt_Click);
             // 
             // mnUpload
