@@ -96,7 +96,7 @@ namespace EsPy.Dialogs
                 if (this.Mode == Modes.Upload)
                 {
                     res = this.Port.Upload(this.FileName, this.Buffer);
-                    if (res.Result == ResultStatus.Statuses.Success) ;
+                    if (res.Result == ResultStatus.Statuses.Success)
                         dres = DialogResult.OK;
                 }
                 else

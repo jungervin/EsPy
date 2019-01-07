@@ -176,7 +176,7 @@
             this.mnNewCss.Name = "mnNewCss";
             this.mnNewCss.Size = new System.Drawing.Size(164, 22);
             this.mnNewCss.Tag = ".css";
-            this.mnNewCss.Text = "Css...";
+            this.mnNewCss.Text = "CSS...";
             this.mnNewCss.Click += new System.EventHandler(this.mnNewCss_Click);
             // 
             // mnNewJs
@@ -237,7 +237,7 @@
             this.mnSaveAs.Enabled = false;
             this.mnSaveAs.Name = "mnSaveAs";
             this.mnSaveAs.Size = new System.Drawing.Size(185, 22);
-            this.mnSaveAs.Text = "Save as...";
+            this.mnSaveAs.Text = "Save As...";
             this.mnSaveAs.Click += new System.EventHandler(this.mnSaveAs_Click);
             // 
             // mnSaveAll
@@ -247,7 +247,7 @@
             this.mnSaveAll.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
             this.mnSaveAll.Size = new System.Drawing.Size(185, 22);
-            this.mnSaveAll.Text = "Save all";
+            this.mnSaveAll.Text = "Save All";
             this.mnSaveAll.Click += new System.EventHandler(this.mnSaveAll_Click);
             // 
             // toolStripMenuItem2
@@ -320,7 +320,7 @@
             this.mnFileManager.Image = global::EsPy.Properties.Resources.filemanager;
             this.mnFileManager.Name = "mnFileManager";
             this.mnFileManager.Size = new System.Drawing.Size(152, 22);
-            this.mnFileManager.Text = "Filemanager...";
+            this.mnFileManager.Text = "File Manager...";
             this.mnFileManager.Click += new System.EventHandler(this.mnFileManager_Click);
             // 
             // mnEspTool
@@ -427,7 +427,7 @@
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(37, 28);
-            this.btnNew.Text = "New File";
+            this.btnNew.Text = "New";
             // 
             // btnNewPython
             // 
@@ -450,7 +450,7 @@
             this.btnNewCss.Name = "btnNewCss";
             this.btnNewCss.Size = new System.Drawing.Size(134, 22);
             this.btnNewCss.Tag = ".css";
-            this.btnNewCss.Text = "Css...";
+            this.btnNewCss.Text = "CSS...";
             this.btnNewCss.Click += new System.EventHandler(this.mnNewCss_Click);
             // 
             // btnNewJs
@@ -491,7 +491,7 @@
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(28, 28);
             this.btnOpen.Text = "Open...";
-            this.btnOpen.ToolTipText = "Open a File...";
+            this.btnOpen.ToolTipText = "Open...";
             this.btnOpen.Click += new System.EventHandler(this.mnOpen_Click);
             // 
             // btnSave
@@ -614,7 +614,7 @@
             this.btnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(28, 28);
-            this.btnReset.Text = "Soft reset";
+            this.btnReset.Text = "Soft Reset";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // toolStripSeparator7
@@ -645,7 +645,7 @@
             this.btnTerminalClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTerminalClear.Name = "btnTerminalClear";
             this.btnTerminalClear.Size = new System.Drawing.Size(28, 28);
-            this.btnTerminalClear.Text = "toolStripButton1";
+            this.btnTerminalClear.Text = "Clear Terminal";
             this.btnTerminalClear.Click += new System.EventHandler(this.btnTerminalClear_Click);
             // 
             // statusStrip1
