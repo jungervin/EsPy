@@ -45,9 +45,9 @@ To use all features ([esptool](https://github.com/espressif/esptool)),  [Python]
   for i in range(5):
     print(i)
     time.sleep_ms(500)
-    p.low()
+    p.value(0)
     time.sleep_ms(500)
-    p.high()
+    p.value(1)
 ```
 
 **Good to know:**
