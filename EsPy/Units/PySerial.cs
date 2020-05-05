@@ -379,8 +379,9 @@ namespace EsPy.Units
             List<string> prog = new List<string>();
             prog.Add("import os");
             prog.Add("l=os.listdir()");
+            prog.Add("cur=os.getcwd()+'/'");
             prog.Add("for f in l:");
-            prog.Add(" s=os.stat(f)");
+            prog.Add(" s=os.stat(cur+f)");
             prog.Add(" print('{0},{1},{2}'.format(f, s[0], s[6]))\r\n\b");
             ResultStatus res = this.Exec(prog);
             if (res.Result == ResultStatus.Statuses.Success)
